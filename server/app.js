@@ -10,7 +10,7 @@ const PORT = process.env.PORT;
 
 // middleware
 const corsOptions = {
-    origin: "https://menhew.onrender.com/" // frontend URI (ReactJS)
+    origin: "https://menhew.onrender.com" // frontend URI (ReactJS)
 }
 
 app.use(cors(corsOptions));
