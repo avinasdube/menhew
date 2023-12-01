@@ -1,0 +1,59 @@
+@import '../../variables';
+
+.navbarContainer,
+.left,
+.middle,
+.right,
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 16px;
+    color: $fontColor;
+    font-weight: 500;
+    z-index: +5;
+}
+
+.left,
+.searchbar,
+.cart,
+.profile {
+    img {
+        width: 20px;
+        height: 20px;
+        transition: 0.3s ease-in-out;
+
+        &:hover{
+            transform: scale(1.08);
+        }
+    }
+}
+
+.navbarContainer {
+    padding: 20px 40px;
+    background-color: $primaryColor;
+
+    .left {
+        gap: 10px;
+        flex-direction: row;
+    }
+
+    .middle {
+        .link {
+            text-decoration: none;
+            color: $secondaryColor;
+            font-weight: 500;
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .navbarContainer{
+        padding: 20px;
+
+        .middle{
+            display: none;
+        }
+    }
+}

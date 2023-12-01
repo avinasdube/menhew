@@ -1,0 +1,9 @@
+@import './variables';
+
+html,
+body {
+  margin: 0;
+  font-family: $primaryFont;
+  font-weight: 500;
+  scroll-behavior: smooth;
+}

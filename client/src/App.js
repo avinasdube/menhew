@@ -1,18 +1,71 @@
-import { useEffect, useState } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet
+} from 'react-router-dom';
+import React from 'react';
+
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Signup from './pages/Signup/Signup';
+import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
+import Categories from './pages/Categories/Categories';
+import Favourites from './pages/Favourites/Favourites';
+import Product from './pages/Product/Product';
 
 function App() {
-  const [message, setMessage] = useState("");
 
-  // Fetching message from backend on mount
-  useEffect(() => {
-    fetch("https://menhew-server.onrender.com/")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
+  const Layout = () => {
+    return (
+      <>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </>
+    )
+  }
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Layout />,
+      children: [
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/home',
+          element: <Home />
+        },
+        {
+          path: '/categories',
+          element: <Categories />
+        },
+        {
+          path: '/favourites',
+          element: <Favourites />
+        },
+        {
+          path: '/product/:id',
+          element: <Product />
+        }
+      ]
+    },
+    {
+      path: '/signup',
+      element: <Signup />
+    },
+    {
+      path: '/login',
+      element: <Login />
+    }
+  ])
 
   return (
     <div className="App">
-      <h1>{message}</h1>
+      <RouterProvider router={router} />
     </div>
   );
 }

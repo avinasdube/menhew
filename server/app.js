@@ -3,14 +3,15 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
+
 dotenv.config();
 
 const app = express()
 const PORT = process.env.PORT;
 
 // middleware
-const corsOptions = {
-    origin: "https://menhew.onrender.com" // frontend URI (ReactJS)
+const corsOptions = {    origin: ["https://menhew.onrender.com", "http://localhost:3000"]// frontend URI (ReactJS)
+
 }
 
 app.use(cors(corsOptions));
