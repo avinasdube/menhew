@@ -1,0 +1,24 @@
+@import '../../variables';
+
+.flex-container{
+    &.mainContainer{
+        &__banner{
+            height: 200px;
+            border-radius: 20px;
+            background-image: url('../../assets/images/homepageImage.jpg');
+            background-size: cover;
+            align-items: center;
+            justify-content: center;
+            color: $cardWhite;
+
+            &__heading{
+                font-size: 40px;
+            }
+
+            &__subHeading{
+                font-size: 16px;
+                color: $accentColor;
+            }
+        }
+    }
+}

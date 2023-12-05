@@ -3,31 +3,31 @@ import './Navbar.scss';
 import { Link } from 'react-router-dom';
 
 import search from '../../assets/icons/search.png';
+import categories from '../../assets/icons/categories.png';
 import cart from '../../assets/icons/cart.png';
 import profile from '../../assets/icons/profile.png';
 import menhew from '../../assets/icons/menhew.png';
 
 const Navbar = () => {
   return (
-    <div className='navbarContainer'>
+    <div className='navbarContainer' data-testid="navbar">
       <section className='left'>
         <img src={menhew} alt=''></img>
-        <span>Menhew</span>
-      </section>
-      <section className='middle'>
-        <Link className='link' to='/categories'>Discover</Link>
-        <Link className='link' to='/about'>Brand</Link>
+        <Link className='link' to='/'>Menhew</Link>
       </section>
       <section className='right'>
         <div className="actions">
           <div className="searchbar">
-            <img src={search} alt=''></img>
+            <img src={search} alt='search'></img>
+          </div>
+          <div className="categories">
+            <Link to='/categories'><img src={categories} alt='search'></img></Link>
           </div>
           <div className="cart">
-            <img src={cart} alt=''></img>
+            <Link><img src={cart} alt='cart'></img></Link>
           </div>
           <div className="profile">
-            <img src={profile} alt=''></img>
+            <Link><img src={profile} alt='profile'></img></Link>
           </div>
         </div>
       </section>
@@ -35,4 +35,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

@@ -6,7 +6,7 @@ import menhew from '../../assets/icons/menhew.png';
 
 const Footer = () => {
   return (
-    <div className='footerContainer'>
+    <div className='footerContainer' data-testid="footer">
       <div className="footerBox">
         <div className="footerTop">
           <div className="topLeft">

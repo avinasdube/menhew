@@ -1,0 +1,215 @@
+@import '../../variables';
+
+.flex-container {
+    &.welcomeContainer {
+        padding: 20px 40px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+
+        &__leftSide {
+            flex: 50%;
+            flex-direction: column;
+            gap: 40px;
+
+            &__leftTop {
+                &__mottoCard {
+                    display: block;
+                    font-size: 80px;
+                    font-weight: 600;
+                    line-height: 70px;
+                    width: 70%;
+
+                    & img {
+                        width: 60px;
+                        height: 60px;
+                        background-color: $accentColor;
+                        border-top-left-radius: 20px;
+                        border-bottom-right-radius: 20px;
+                    }
+                }
+            }
+
+            &__leftBottom {
+                flex: 30%;
+
+                &__adCard {
+                    width: fit-content;
+                    padding: 20px;
+                    border-top-right-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                    background-color: $cardWhite;
+
+                    &__ad {
+                        &__heading {
+                            right: 0;
+                            font-size: 40px;
+                            font-weight: 600;
+                        }
+
+                        &__content {
+                            display: block;
+                            font-weight: 400;
+                            margin-top: 10px;
+
+                            & button {
+                                font-size: 20px;
+                                border: none;
+                                background: none;
+                                outline: none;
+                                border-bottom: 2px solid $accentColor;
+                                cursor: pointer;
+
+                                & img {
+                                    width: 30px;
+                                    height: 30px;
+                                    margin-bottom: -6px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__rightSide {
+            align-items: center;
+            justify-content: center;
+
+            & img {
+                width: 400px;
+                height: 480px;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1080px) {
+        &.welcomeContainer {
+            &__leftSide {
+                gap: 20px;
+
+                &__leftTop {
+                    &__mottoCard {
+                        font-size: 60px;
+                        width: 90%;
+
+                        & img {
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+                }
+
+                &__leftBottom {
+                    &__adCard {
+                        &__ad {
+                            &__heading {
+                                font-size: 30px;
+                            }
+
+                            &__content {
+                                & button {
+                                    font-size: 16px;
+
+                                    & img {
+                                        width: 25px;
+                                        height: 25px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__rightSide {
+                & img {
+                    width: 340px;
+                    height: 400px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 860px) {
+        &.welcomeContainer {
+            flex-direction: column-reverse;
+
+            &__leftSide {
+                &__leftTop {
+                    &__mottoCard {
+                        font-size: 60px;
+                        width: 100%;
+
+                        & img {
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+                }
+
+                &__leftBottom {
+                    &__adCard {
+                        width: auto;
+                    }
+                }
+            }
+
+            &__rightSide {
+                width: 100%;
+
+                & img {
+                    width: 100%;
+                    height: 400px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 780px) {
+        &.welcomeContainer {
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+    }
+
+    @media screen and (max-width: 460px) {
+        &.welcomeContainer {
+            &__leftSide {
+                &__leftTop {
+                    &__mottoCard {
+                        font-size: 50px;
+                        line-height: 50px;
+                    }
+                }
+
+                &__leftBottom {
+                    &__adCard {
+                        &__ad {
+                            &__heading {
+                                font-size: 26px;
+                            }
+
+                            &__content {
+                                font-size: 14px;
+
+                                & button {
+                                    font-size: 14px;
+
+                                    & img {
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

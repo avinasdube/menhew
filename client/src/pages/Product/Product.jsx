@@ -2,7 +2,7 @@ import React from 'react'
 
 const Product = () => {
   return (
-    <div>Product</div>
+    <div data-testid="product">Product</div>
   )
 }
 

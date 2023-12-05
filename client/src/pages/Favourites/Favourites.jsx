@@ -2,7 +2,7 @@ import React from 'react'
 
 const Favourites = () => {
   return (
-    <div>Favourites</div>
+    <div data-testid="favourites">Favourites</div>
   )
 }
 
