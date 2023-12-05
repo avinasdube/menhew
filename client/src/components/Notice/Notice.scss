@@ -1,0 +1,28 @@
+.noticeContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    text-align: center;
+    background-color: yellow;
+    padding: 40px;
+}
+
+@media screen and (max-width: 720px) {
+    .noticeContainer{
+        padding: 20px;
+        
+        .noticeCard{
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .noticeContainer{
+        
+        .noticeCard{
+            font-size: 10px;
+        }
+    }
+}

@@ -10,13 +10,13 @@
     justify-content: space-between;
     gap: 20px;
     font-size: 16px;
-    color: $fontColor;
     font-weight: 500;
     z-index: +5;
 }
 
 .left,
 .searchbar,
+.categories,
 .cart,
 .profile {
     img {
@@ -24,7 +24,7 @@
         height: 20px;
         transition: 0.3s ease-in-out;
 
-        &:hover{
+        &:hover {
             transform: scale(1.08);
         }
     }
@@ -32,27 +32,27 @@
 
 .navbarContainer {
     padding: 20px 40px;
-    background-color: $primaryColor;
+
+    .link {
+        color: $fontColor;
+    }
 
     .left {
         gap: 10px;
         flex-direction: row;
-    }
 
-    .middle {
-        .link {
-            text-decoration: none;
-            color: $secondaryColor;
+        .link{
             font-weight: 500;
+            font-size: 16px;
         }
     }
 }
 
 @media screen and (max-width: 720px) {
-    .navbarContainer{
+    .navbarContainer {
         padding: 20px;
 
-        .middle{
+        .middle {
             display: none;
         }
     }

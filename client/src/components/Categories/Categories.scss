@@ -1,0 +1,61 @@
+@import '../../variables';
+
+.categoriesContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    gap: 60px;
+
+    .heading{
+        text-align: center;
+        font-size: 70px;
+        font-weight: 600;
+    }
+
+    .catOptions{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .optionRow{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            button{
+                background-color: $cardWhite;
+                min-width: 400px;
+                height: 160px;
+                padding: 40px;
+                border: 2px solid transparent;
+                outline: none;
+                font-size: 30px;
+                font-weight: 600;
+                border-radius: 20px;
+                transition: 0.3s ease-in-out;
+                position: relative;
+                font-family: $primaryFont;
+
+                img{
+                    border-radius: 50%;
+                    background-color: $accentColor;
+                    width: 40px;
+                    height: 40px;
+                    padding: 10px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+            }
+            
+            button:hover{
+                transform: scale(1.03);
+                border: 2px solid $mainBg;
+            }
+        }
+    }
+}
