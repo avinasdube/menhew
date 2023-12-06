@@ -1,17 +1,43 @@
 @import '../../styles/variables';
 
-.welcomeContainer{
+.welcomeContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 3.5em 2em;
 
-    .header{
+    .header {
         font-size: 3.5em;
+        text-align: center;
     }
-    
-    .subheader{
+
+    .subheader {
         font-weight: 400;
+        font-family: $styleFont;
+    }
+
+    @media screen and (max-width: $desktopBreakpoint) {
+
+        .header {
+            font-size: 3em;
+        }
+
+        .subheader {
+            font-size: 0.8em;
+        }
+    }
+
+    @media screen and (max-width: $tabletBreakpoint) {
+        padding: 2em 1em;
+
+        .header {
+            width: 300px;
+            font-size: 2.4em;
+        }
+
+        .subheader {
+            font-size: 0.5em;
+        }
     }
 }

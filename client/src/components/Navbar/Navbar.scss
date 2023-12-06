@@ -11,4 +11,12 @@
         align-items: center;
         gap: $spacingMedium;
     }
+
+    @media screen and (max-width: $tabletBreakpoint) {
+        padding: 1.2rem 1rem;
+
+        .nav-right{
+            gap: $spacingSmall
+        }
+    }
 }

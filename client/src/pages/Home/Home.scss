@@ -1,21 +1,36 @@
 @import '../../styles/variables';
 
-.homeContainer{
-    .section-1{
+.homeContainer {
+    .section-1 {
         height: 360px;
         background-image: url('../../assets/images/welcomes.jpg');
         background-size: contain no-repeat;
     }
 
-    .section-2{
+    .section-2 {
         display: flex;
         flex-direction: column;
         gap: $spacingMedium;
-        padding: 1.5rem 2rem;
+        padding: 1.5em 2em;
 
-        .heading{
-            font-size: 3em;
+        .heading {
+            font-size: 2.5em;
             font-weight: 600;
+            font-family: $styleFont;
+        }
+    }
+
+    @media screen and (max-width: $tabletBreakpoint) {
+        .section-1 {
+            height: 300px;
+        }
+
+        .section-2 {
+            padding: 1.5em 1em;
+
+            .heading {
+                font-size: 2em;
+            }
         }
     }
 }
