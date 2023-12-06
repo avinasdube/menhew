@@ -18,4 +18,17 @@
         gap: $spacingSmall;
         font-family: $logoFont;
     }
+
+    @media screen and (max-width: $tabletBreakpoint) {
+        .message{
+            font-size: 1.8em;
+            padding: 0 1em;
+        }
+
+        .copyright{
+            span{
+                font-size: 0.6em;
+            }
+        }
+    }
 }

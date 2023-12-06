@@ -2,10 +2,14 @@
 
 .logoContainer{
     font-family: $logoFont;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 500;
 
     @media screen and (max-width: $desktopBreakpoint) {
-        font-size: 14px;
+        font-size: 0.8em;
+    }
+
+    @media screen and (max-width: $mobileBreakpoint) {
+        font-size: 0.7em;
     }
 }
