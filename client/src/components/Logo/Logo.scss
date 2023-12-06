@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.logoContainer{
+    font-family: $logoFont;
+    font-size: 16px;
+    font-weight: 500;
+
+    @media screen and (max-width: $desktopBreakpoint) {
+        font-size: 14px;
+    }
+}

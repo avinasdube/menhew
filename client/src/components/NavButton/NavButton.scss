@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+.linkContainer{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: $spacingSmall;
+    color: $fontColor;
+
+    img{
+        width: 25px;
+        height: 25px;
+        padding: 2px;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+
+        @media screen and (max-width: $desktopBreakpoint) {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
