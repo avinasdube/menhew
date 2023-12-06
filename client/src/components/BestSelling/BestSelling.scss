@@ -1,171 +1,39 @@
-@import '../../variables';
+@import '../../styles/variables';
 
-.flex-container {
-    flex-direction: column;
+.bestsellingContainer{
 
-    &.mainContainer {
-        padding: 20px 40px;
+    .bestProduct{
+        display: flex;
+        justify-content: space-between;
 
-        &__subContainer {
-            gap: 40px;
-            padding: 100px;
-            border-radius: 20px;
-            background-color: $bgAccent;
-            font-weight: 600;
+        .content{
+            width: 50%;
 
-            &__heading {
-                font-size: 50px;
-                color: $cardWhite;
-                width: 400px;
+            .top, .middle{
+                margin: 20px 20px;
             }
 
-            &__productsList {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 30px;
+            .top{
+                background-color: $accentColor;
+                width: fit-content;
+                font-size: 1.5rem;
+                padding: 10px;
+            }
 
-                &__singleProduct {
-                    gap: 20px;
-                    color: $cardWhite;
-                    font-size: 14px;
-
-                    &__image {
-                        width: 240px;
-                        height: 280px;
-                        object-fit: cover;
-                        border-radius: 10px;
-                    }
-
-                    &__productDetails {
-                        font-size: 16px;
-                        font-weight: 600;
-                        gap: 4px;
-
-                        .descrip {
-                            font-weight: 300;
-                            font-size: 12px;
-                        }
-                    }
-
-                    &__priceDetails {
-                        gap: 4px;
-                        flex-direction: row;
-                        font-weight: 300;
-                        justify-content: space-between;
-                    }
-                }
+            .middle{
+                font-size: 3.5rem;
+                width: 70%;
             }
         }
-    }
-}
 
-@media screen and (max-width: 1080px) {
-    .flex-container {
-
-        &.mainContainer {
-
-            &__subContainer {
-                padding: 80px;
-
-                &__productsList {
-                    gap: 15px;
-
-                    &__singleProduct {
-
-                        &__image {
-                            width: 200px;
-                            height: 240px;
-                        }
-                    }
-                }
-            }
+        img{
+            width: 50%;
+            height: 440px;
+            object-fit: cover;
         }
-    }
-}
 
-@media screen and (max-width: 780px) {
-    .flex-container {
-
-        &.mainContainer {
-            padding: 20px;
-        }
-    }
-}
-
-@media screen and (max-width: 660px) {
-    .flex-container {
-
-        &.mainContainer {
-
-            &__subContainer {
-                gap: 20px;
-                padding: 40px;
-
-                &__heading {
-                    font-size: 40px;
-                    width: fit-content;
-                }
-
-                &__productsList {
-
-                    &__singleProduct {
-                        font-size: 13px;
-
-                        &__image {
-                            width: 160px;
-                            height: 200px;
-                        }
-
-                        &__productDetails {
-                            font-size: 13px;
-
-                            .descrip {
-                                font-size: 11px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 460px) {
-    .flex-container {
-
-        &.mainContainer {
-
-            &__subContainer {
-                padding: 20px;
-
-                &__heading {
-                    font-size: 34px;
-                }
-
-                &__productsList {
-                    flex-direction: column;
-
-                    &__singleProduct {
-                        font-size: 14px;
-                        width: 100%;
-
-                        &__image {
-                            width: 100%;
-                            height: 240px;
-                        }
-
-                        &__productDetails {
-                            font-size: 14px;
-
-                            .descrip {
-                                font-size: 12px;
-                            }
-                        }
-                    }
-                }
-            }
+        &:nth-child(odd){
+            flex-direction: row-reverse;
         }
     }
 }

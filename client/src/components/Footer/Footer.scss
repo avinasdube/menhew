@@ -1,139 +1,21 @@
-@import '../../variables';
+@import '../../styles/variables';
 
-.footerContainer,
-.footerBox,
-.footerTop,
-.menhewLogo,
-.link,
-.navLinks,
-.copyrightDetails,
-.cdRight,
-.navLinks {
+.footer{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 400;
-    color: $fontColor;
-}
+    flex-direction: column;
+    gap: $spacingSmall;
 
-.link {
-    text-decoration: none;
-}
-
-
-.footerContainer {
-    height: 200px;
-    padding: 20px 40px;
-
-    .footerBox {
-        width: 100%;
-        flex-direction: column;
-        gap: 20px;
-
-        .footerTop {
-            justify-content: space-between;
-            padding: 20px 0;
-
-            .topLeft {
-                flex: 40%;
-
-                .menhewLogo {
-                    justify-content: left;
-
-                    .link {
-                        gap: 10px;
-                        font-size: 24px;
-                        font-weight: 600;
-
-                        img {
-                            width: 30px;
-                            height: 30px;
-                        }
-                    }
-                }
-            }
-
-            .topRight {
-                flex: 60%;
-                text-align: right;
-            }
-
-        }
-
-        .footerBottom {
-            width: 100%;
-
-            .navLinks {
-                justify-content: space-between;
-
-            }
-
-            .copyrightDetails {
-                justify-content: space-between;
-
-                .cdRight {
-                    justify-content: space-between;
-                    gap: 40px;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 720px) {
-
-    .footerContainer,
-    .footerBox,
-    .footerTop,
-    .menhewLogo,
-    .link,
-    .navLinks,
-    .copyrightDetails,
-    .cdRight,
-    .navLinks {
-        font-weight: 300;
-        font-size: 12px;
-        gap: 10px;
+    .message{
+        font-size: 2.5em;
+        font-family: $styleFont;
+        text-align: center;
     }
 
-    .footerContainer {
-        padding: 20px;
-        
-        .footerBox {
-            .footerTop {
-                flex-direction: column;
-
-                .topRight {
-                    text-align: center;
-                }
-            }
-
-            .footerBottom {
-                .copyrightDetails {
-
-                    .cdRight {
-                        gap: 10px;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 480px) {
-
-    .footerContainer,
-    .footerBox,
-    .footerTop,
-    .menhewLogo,
-    .link,
-    .navLinks,
-    .copyrightDetails,
-    .cdRight,
-    .navLinks {
-        font-weight: 300;
-        font-size: 10px;
-        gap: 10px;
+    .copyright{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $spacingSmall;
+        font-family: $logoFont;
     }
 }

@@ -1,1 +1,21 @@
-@import '../../variables';
+@import '../../styles/variables';
+
+.homeContainer{
+    .section-1{
+        height: 360px;
+        background-image: url('../../assets/images/welcomes.jpg');
+        background-size: contain no-repeat;
+    }
+
+    .section-2{
+        display: flex;
+        flex-direction: column;
+        gap: $spacingMedium;
+        padding: 1.5rem 2rem;
+
+        .heading{
+            font-size: 3em;
+            font-weight: 600;
+        }
+    }
+}
