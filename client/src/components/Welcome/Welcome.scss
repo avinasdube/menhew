@@ -15,6 +15,7 @@
     .subheader {
         font-weight: 400;
         font-family: $styleFont;
+        margin-bottom: 20px;
     }
 
     @media screen and (max-width: $desktopBreakpoint) {

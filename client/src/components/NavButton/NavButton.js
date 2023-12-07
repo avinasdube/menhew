@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavButton.scss';
 
-const NavButton = ({ link, exact, children, navImg, bg, filter }) => {
+const NavButton = ({ link, children, navImg,  }) => {
     return (
-        <Link className="linkContainer" to={link} exact={exact} style={{filter: `${filter}`}}>
-            <img src={navImg} alt='' style={{ background: `${bg}` }}></img>
+        <Link
+            className="linkContainer"
+            to={link}>
+            {navImg ?
+                <img src={navImg} alt=''></img> : ''}
             {children}
         </Link>
     )
