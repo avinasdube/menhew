@@ -7,15 +7,42 @@
     justify-content: center;
     padding: 3.5em 2em;
 
+    .header,
+    .subheader {
+        backdrop-filter: blur(20px);
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
     .header {
-        font-size: 3.5em;
+        font-weight: 600;
+        font-size: 2.5em;
         text-align: center;
     }
 
     .subheader {
         font-weight: 400;
-        font-family: $styleFont;
         margin-bottom: 20px;
+        font-family: $styleFont;
+    }
+
+    .redirect {
+        .link {
+            text-decoration: none;
+
+            img {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+                padding: 0.2em;
+                background-color: $subMainBg;
+                border-top-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+
+                &:hover {
+                    background-color: $accentColor;
+                }
+            }
+        }
     }
 
     @media screen and (max-width: $desktopBreakpoint) {
@@ -35,10 +62,24 @@
         .header {
             width: 300px;
             font-size: 2.4em;
+            line-height: 35px;
         }
 
         .subheader {
             font-size: 0.5em;
+        }
+
+        .redirect {
+            .link {
+                text-decoration: none;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-top-left-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                }
+            }
         }
     }
 }

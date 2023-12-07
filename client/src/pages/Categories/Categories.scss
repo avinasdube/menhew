@@ -19,7 +19,8 @@
             justify-content: center;
             padding: 3.5em 2em;
 
-            .introHeading, .introSubheading{
+            .introHeading,
+            .introSubheading {
                 backdrop-filter: blur(20px);
                 text-align: center;
             }
@@ -38,19 +39,11 @@
         }
     }
 
-    .catMain{
+    .catMain {
         padding: 2rem;
         display: flex;
         flex-direction: column;
         gap: 20px;
-
-        .catHeading{
-            font-size: 2.5em;
-            font-weight: 600;
-            font-family: $styleFont;
-            width: fit-content;
-            background-color: $cardWhite;
-        }
 
         .catGrid {
             display: grid;
@@ -60,44 +53,40 @@
     }
 
     @media screen and (max-width: $desktopBreakpoint) {
-        .header{
+        .header {
             height: 360px;
-            .headerIntro{
-                .introHeading{
+
+            .headerIntro {
+                .introHeading {
                     font-size: 2.3rem;
                 }
-            }
-        }
-
-        .catMain{
-            .catHeading{
-                font-size: 2.3rem;
             }
         }
     }
 
     @media screen and (max-width: $tabletBreakpoint) {
-        .header{
+        .header {
             height: 320px;
-            .headerIntro{
-                .introHeading{
+
+            .headerIntro {
+
+                .introHeading, .introSubheading{
+                    background-color: #ffffff4d;
+                }
+                .introHeading {
                     font-size: 1.8em;
                 }
 
-                .introSubheading{
+                .introSubheading {
                     font-size: 0.58em;
                 }
             }
         }
 
-        .catMain{
+        .catMain {
             padding: 1rem;
-            
-            .catHeading{
-                font-size: 2rem;
-            }
 
-            .catGrid{
+            .catGrid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(auto, 1fr);
             }
@@ -105,14 +94,15 @@
     }
 
     @media screen and (max-width: $mobileBreakpoint) {
-        .header{
+        .header {
             height: 320px;
-            .headerIntro{
-                .introHeading{
+
+            .headerIntro {
+                .introHeading {
                     font-size: 1.5em;
                 }
 
-                .introSubheading{
+                .introSubheading {
                     font-size: 0.5em;
                     width: 85%;
                 }

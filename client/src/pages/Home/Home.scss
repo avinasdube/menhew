@@ -4,7 +4,7 @@
     .section-1 {
         height: 360px;
         background-image: url('../../assets/images/welcomes.jpg');
-        background-size: contain no-repeat;
+        background-size: cover;
     }
 
     .section-2 {
@@ -12,14 +12,6 @@
         flex-direction: column;
         gap: $spacingMedium;
         padding: 1.5em 2em;
-
-        .heading {
-            font-size: 2.5em;
-            font-weight: 600;
-            width: fit-content;
-            font-family: $styleFont;
-            background-color: $cardWhite;
-        }
     }
 
     @media screen and (max-width: $tabletBreakpoint) {
@@ -29,10 +21,6 @@
 
         .section-2 {
             padding: 1.5em 1em;
-
-            .heading {
-                font-size: 2em;
-            }
         }
     }
 }
