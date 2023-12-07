@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: $spacingSmall;
+    padding: 1.5em 2em;
 
     .message{
         font-size: 2.5em;
