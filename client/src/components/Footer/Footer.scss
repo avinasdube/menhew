@@ -32,4 +32,11 @@
             }
         }
     }
+
+    @media screen and (max-width: $mobileBreakpoint) {
+        .message{
+            font-size: 1.4em;
+            padding: 0 2em;
+        }
+    }
 }
