@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 import React from 'react';
 
-import Navbar from './components/Navbar/Navbar';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
@@ -19,7 +18,6 @@ function App() {
   const Layout = () => {
     return (
       <>
-        <Navbar />
         <Outlet />
         <Footer />
       </>
@@ -28,8 +26,17 @@ function App() {
 
   const router = createBrowserRouter([
     {
+      path: '/',
       element: <Layout />,
       children: [
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/home',
+          element: <Home />
+        },
         {
           path: '/categories',
           element: <Categories />
@@ -43,14 +50,6 @@ function App() {
           element: <Product />
         }
       ]
-    },
-    {
-      path: '/',
-      element: <Home />
-    },
-    {
-      path: '/home',
-      element: <Home />
     },
     {
       path: '/signup',
