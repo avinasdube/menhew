@@ -3,6 +3,8 @@ import './Home.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import Welcome from '../../components/Welcome/Welcome';
 import BestSelling from '../../components/BestSelling/BestSelling';
+import Heading from '../../components/Heading/Heading';
+import NewLaunched from '../../components/NewLaunched/NewLaunched';
 
 const Home = () => {
   return (
@@ -12,8 +14,10 @@ const Home = () => {
         <Welcome />
       </div>
       <div className="section-2">
-        <div className="heading">Best Selling Products</div>
+        <Heading>BEST SELLING PRODUCTS</Heading>
         <BestSelling />
+        <Heading>NEWLY LAUNCHED</Heading>
+        <NewLaunched />
       </div>
     </div>
   )

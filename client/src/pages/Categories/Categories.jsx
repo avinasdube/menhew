@@ -10,6 +10,7 @@ import shirtImg from '../../assets/images/casual-shirt/regular_fit_denim_shirt.j
 import jeanImg from '../../assets/images/jeans/slim_cargo_jeans4.jfif';
 import trouserImg from '../../assets/images/trousers/cargo_joggers4.jfif';
 import tshirtImg from '../../assets/images/tshirts/slim_fit_white_tshirt.jfif';
+import Heading from '../../components/Heading/Heading';
 
 
 const Categories = () => {
@@ -47,7 +48,7 @@ const Categories = () => {
         </div>
       </header>
       <main className="catMain">
-        <div className="catHeading">CATEGORIZED FOR YOU</div>
+        <Heading>CATEGORIZED FOR YOU</Heading>
         <div className="catGrid">
           <CatBox catOptions={catOptions} />
         </div>
