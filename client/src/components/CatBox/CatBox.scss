@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+.catBox {
+    height: 200px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $styleFont;
+
+    .catTitle {
+        font-weight: 600;
+        font-size: 1.8rem;
+        backdrop-filter: blur(20px);
+        cursor: default;
+    }
+
+    &:hover{
+        transform: scale(1.006);
+    }
+
+    @media screen and (max-width: $tabletBreakpoint) {
+        .catTitle{
+            font-size: 1.6rem;
+        }
+    }
+
+    @media screen and (max-width: $mobileBreakpoint) {
+        .catTitle{
+            font-size: 1.3rem;
+        }
+    }
+}
