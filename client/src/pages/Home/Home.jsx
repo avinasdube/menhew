@@ -3,7 +3,6 @@ import './Home.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import Welcome from '../../components/Welcome/Welcome';
 import BestSelling from '../../components/BestSelling/BestSelling';
-import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
   return (
@@ -15,7 +14,6 @@ const Home = () => {
       <div className="section-2">
         <div className="heading">Best Selling Products</div>
         <BestSelling />
-        <Footer />
       </div>
     </div>
   )
