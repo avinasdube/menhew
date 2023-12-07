@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+
+.heading {
+    font-size: 2.5em;
+    font-weight: 600;
+    max-width: 100%;
+    width: fit-content;
+    font-family: $styleFont;
+    background-color: $cardWhite;
+
+    @media screen and (max-width: $tabletBreakpoint) {
+            font-size: 2em;
+    }
+}
