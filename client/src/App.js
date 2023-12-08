@@ -10,8 +10,8 @@ import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Categories from './pages/Categories/Categories';
 import Favourites from './pages/Favourites/Favourites';
-import Product from './pages/Product/Product';
 import Footer from './components/Footer/Footer';
+import ProductList from './components/ProductList/ProductList';
 
 function App() {
 
@@ -46,8 +46,8 @@ function App() {
           element: <Favourites />
         },
         {
-          path: '/product/:id',
-          element: <Product />
+          path: '/products/:category',
+          element: <ProductList />
         }
       ]
     },
