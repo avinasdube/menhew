@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+.pListContainer{
+    .plistMain{
+        padding: 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .productsGrid{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(auto, 1fr);
+            gap: 30px;
+        }
+
+        @media screen and (max-width: $desktopBreakpoint) {
+            
+            .productsGrid{
+                gap: 15px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media screen and (max-width: $tabletBreakpoint) {
+            padding: 1rem;
+            
+            .productsGrid{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: $mobileBreakpoint) {
+            
+            .productsGrid{
+                gap: 10px;
+            }
+        }
+    }
+}
