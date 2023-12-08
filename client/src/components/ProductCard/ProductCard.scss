@@ -1,0 +1,92 @@
+@import '../../styles/variables';
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: $styleFont;
+
+    .cardImg {
+        height: 260px;
+        background-size: cover;
+        position: relative;
+
+        .actionImg {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            backdrop-filter: blur(20px);
+            background-color: #ffffff4d;
+            padding: 4px;
+
+            img {
+                width: 25px;
+                height: 25px;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .cardDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .pTitle,
+        .price {
+            background-color: $cardWhite;
+            width: fit-content;
+            padding: 4px;
+        }
+
+        .pTitle {
+            font-weight: 600;
+        }
+
+        .checkout{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .price, .buynow {
+                font-size: 0.8em;
+            }
+
+            .buynow{
+                text-decoration: none;
+                background-color: $accentColor;
+                padding: 4px;
+                color: $cardWhite;
+                font-weight: 400;
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobileBreakpoint) {
+        .cardImg{
+            height: 210px;
+
+            .actionImg{
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .cardDetails{
+            .pTitle{
+                font-size: 1em;
+            }
+
+            .checkout{
+                .price, .buynow {
+                    font-size: 0.7em;
+                }
+            }
+        }
+    }
+}

@@ -11,6 +11,8 @@
     .catTitle {
         font-weight: 600;
         font-size: 1.8rem;
+        text-decoration: none;
+        color: $fontColor;
         backdrop-filter: blur(20px);
         cursor: default;
     }

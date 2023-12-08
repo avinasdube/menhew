@@ -5,24 +5,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3.5em 2em;
 
-    .header,
-    .subheader {
+    .wheader,
+    .wsubheader {
+        text-align: center;
         backdrop-filter: blur(20px);
         background-color: rgba(255, 255, 255, 0.3);
+        font-family: $styleFont;
     }
 
-    .header {
+    .wheader {
         font-weight: 600;
         font-size: 2.5em;
         text-align: center;
     }
 
-    .subheader {
+    .wsubheader {
         font-weight: 400;
         margin-bottom: 20px;
-        font-family: $styleFont;
     }
 
     .redirect {
@@ -47,25 +47,23 @@
 
     @media screen and (max-width: $desktopBreakpoint) {
 
-        .header {
+        .wheader {
             font-size: 3em;
         }
 
-        .subheader {
+        .wsubheader {
             font-size: 0.8em;
         }
     }
 
     @media screen and (max-width: $tabletBreakpoint) {
-        padding: 2em 1em;
 
-        .header {
-            width: 300px;
+        .wheader {
             font-size: 2.4em;
             line-height: 35px;
         }
 
-        .subheader {
+        .wsubheader {
             font-size: 0.5em;
         }
 
@@ -80,6 +78,18 @@
                     border-bottom-right-radius: 15px;
                 }
             }
+        }
+    }
+
+    @media screen and (max-width: $mobileBreakpoint) {
+
+        .wheader {
+            font-size: 1.6em;
+            line-height: 35px;
+        }
+
+        .wsubheader {
+            font-size: 0.4em;
         }
     }
 }

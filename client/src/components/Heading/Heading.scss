@@ -7,8 +7,22 @@
     width: fit-content;
     font-family: $styleFont;
     background-color: $cardWhite;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img{
+        height: 50px;
+        width: 50px;
+    }
 
     @media screen and (max-width: $tabletBreakpoint) {
             font-size: 2em;
+            gap: 10px;
+
+            img{
+                height: 40px;
+                width: 40px;
+            }
     }
 }

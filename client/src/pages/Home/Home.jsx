@@ -1,24 +1,29 @@
 import React from 'react';
 import './Home.scss';
-import Navbar from '../../components/Navbar/Navbar';
-import Welcome from '../../components/Welcome/Welcome';
+
+import homeWelcome from '../../assets/images/welcomes.jpg';
 import BestSelling from '../../components/BestSelling/BestSelling';
 import Heading from '../../components/Heading/Heading';
 import NewLaunched from '../../components/NewLaunched/NewLaunched';
+import Header from '../../components/Header/Header';
+import Welcome from '../../components/Welcome/Welcome';
 
 const Home = () => {
+
   return (
     <div className="homeContainer" data-testid="home">
-      <div className="section-1">
-        <Navbar/>
-        <Welcome />
-      </div>
-      <div className="section-2">
+      <Header bgImg={homeWelcome}>
+        <Welcome
+          wHeader={"A gentleman is never off-fashion"}
+          wSubHeader={"Huge collection of outfits, curated just for you."}
+          wLink={"/categories"} />
+      </Header>
+      <main className="section-2">
         <Heading>BEST SELLING PRODUCTS</Heading>
         <BestSelling />
         <Heading>NEWLY LAUNCHED</Heading>
         <NewLaunched />
-      </div>
+      </main>
     </div>
   )
 }
