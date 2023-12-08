@@ -4,40 +4,7 @@
     display: flex;
     flex-direction: column;
 
-    .header {
-        height: 400px;
-        display: flex;
-        flex-direction: column;
-        background-image: url('../../assets/images/catwelcome.jpg');
-        background-size: cover;
-        gap: 5px;
-
-        .headerIntro {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 3.5em 2em;
-
-            .introHeading,
-            .introSubheading {
-                backdrop-filter: blur(20px);
-                text-align: center;
-            }
-
-            .introHeading {
-                padding: 0.5rem;
-                font-size: 2.6em;
-                font-weight: 600;
-                font-family: $styleFont;
-            }
-
-            .introSubheading {
-                font-size: 0.8em;
-                font-family: $logoFont;
-            }
-        }
-    }
+    
 
     .catMain {
         padding: 2rem;
