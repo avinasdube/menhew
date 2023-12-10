@@ -12,12 +12,15 @@ import Categories from './pages/Categories/Categories';
 import Favourites from './pages/Favourites/Favourites';
 import Footer from './components/Footer/Footer';
 import ProductList from './components/ProductList/ProductList';
+import Product from './pages/Product/Product';
+import Notice from './components/Notice/Notice';
 
 function App() {
 
   const Layout = () => {
     return (
       <>
+        <Notice />
         <Outlet />
         <Footer />
       </>
@@ -48,6 +51,10 @@ function App() {
         {
           path: '/products/:category',
           element: <ProductList />
+        },
+        {
+          path: '/products/:category/:productname',
+          element: <Product />
         }
       ]
     },
