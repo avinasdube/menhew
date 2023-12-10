@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
                 <span className="pTitle">{product.title}</span>
                 <div className="checkout">
                     <span className="price">{product.price}</span>
-                    <Link className="buynow">Buy Now</Link>
+                    <Link to={`/products/${product.cat}/${product.title}`} className="buynow">Buy Now</Link>
                 </div>
             </div>
         </div>
