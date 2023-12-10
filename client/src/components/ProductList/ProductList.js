@@ -15,6 +15,7 @@ import plainblueTshirt from '../../assets/images/tshirts/regular_plain_darkblue_
 import flannelShirt from '../../assets/images/casual-shirt/regular_fit_flannel_shirt4.jfif';
 import twillJogger from '../../assets/images/trousers/regular_fit_twill_joggers3.jfif';
 import Heading from '../Heading/Heading';
+import FiltersBar from '../FiltersBar/FiltersBar';
 
 const ProductList = () => {
 
@@ -26,43 +27,46 @@ const ProductList = () => {
       pImg: himalayaTshirt,
       title: "Himalaya T-Shirt",
       price: "Rs. 699",
+      cat: "tshirts",
     },
     {
       id: 2,
       pImg: corduroyShirt,
       title: "Corduroy Shirt",
-      price: "Rs. 1099"
+      price: "Rs. 1099",
+      cat: "shirts"
     },
     {
       id: 3,
       pImg: plainblueTshirt,
       title: "Plain T-Shirt",
-      price: "Rs. 999"
+      price: "Rs. 999",
+      cat: "tshirts"
     },
     {
       id: 4,
       pImg: flannelShirt,
       title: "Regular Fit Flannel Shirt",
-      price: "Rs. 1499"
+      price: "Rs. 1499",
+      cat: "shirts"
     },
     {
       id: 5,
       pImg: twillJogger,
       title: "Regular Fit Twill Jogger",
-      price: "Rs. 799"
+      price: "Rs. 799",
+      cat: "trousers"
     }
   ]
 
   return (
     <div className="pListContainer">
       <Header bgImg={listwelcome}>
-        <Welcome wHeader={`Explore our vast collection ${cat.category}`} />
+        <Welcome wHeader={`Explore our vast collection of ${cat.category}`} />
       </Header>
       <main className="plistMain">
-        <div className="filtersBar">
-
-        </div>
         <Heading >Showing {cat.category}</Heading>
+        <FiltersBar />
         <div className="productsGrid">
           {catProducts.map((catProduct) => (
             <ProductCard product={catProduct} key={catProduct.id} />

@@ -1,0 +1,76 @@
+@import '../../styles/variables';
+
+.filtersContainer {
+    .filtersBox {
+        .sortingFilter {
+            width: -moz-fit-content;
+            width: fit-content;
+            font-family: $styleFont;
+            position: relative;
+            z-index: +2;
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            .activeSortFilter,
+            .sortFilterOptions {
+                padding: 0.5em 0.8em;
+                background-color: $cardWhite;
+                cursor: default;
+                width: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            .activeSortFilter {
+                gap: 10px;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .sortFilterOptions {
+                display: none;
+                flex-direction: column;
+                gap: 6px;
+                position: absolute;
+                top: 40px;
+
+                span {
+                    padding: 0.6em 0.4em;
+                }
+
+                &.active {
+                    display: flex;
+                }
+            }
+        }
+
+        @media screen and (max-width: $tabletBreakpoint) {
+            .sortingFilter {
+                font-size: 0.6rem;
+
+                .activeSortFilter {
+                    img {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: $mobileBreakpoint) {
+            .sortingFilter {
+                font-size: 0.5rem;
+
+                .activeSortFilter {
+                    img {
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

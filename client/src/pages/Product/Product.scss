@@ -1,0 +1,208 @@
+@import '../../styles/variables';
+
+.productContainer,
+.pcontMain,
+.pcontLeft,
+.pcontRight,
+.psize,
+.sizeButtons,
+.pactions {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    height: 40px;
+    background-color: $mainBg;
+    width: auto;
+    font-family: $styleFont;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em;
+
+    img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.productContainer {
+    .pcontMain {
+        flex-direction: row;
+        padding: 2em;
+        gap: 1em;
+
+        .pcontLeft {
+            width: 50%;
+            gap: 10px;
+
+            .largeImg {
+                img {
+                    width: 100%;
+                    height: 600px;
+                    object-fit: cover;
+                }
+            }
+
+            .smallImg {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+
+                img {
+                    width: 100%;
+                    height: 160px;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .pcontRight {
+            width: 50%;
+            font-family: $styleFont;
+            gap: 10px;
+
+            .price {
+                font-size: 1.6em;
+                color: $accentColor;
+            }
+
+            .pdescrip {
+                width: 90%;
+                font-size: 0.9em;
+            }
+
+            .psize {
+                margin-top: 40px;
+                gap: 10px;
+
+                .psizeHeading {
+                    font-size: 1.6em;
+                    font-weight: 600;
+                }
+
+                .sizeButtons {
+                    flex-direction: row;
+                    gap: 10px;
+
+                    button {
+
+                        &:hover {
+                            background-color: $accentColor;
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            .pactions {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                margin-top: 20px;
+
+                button {
+                    height: 45px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $desktopBreakpoint){
+
+        .pcontMain{
+            .pcontLeft{
+                width: 60%;
+                .largeImg{
+                    img{
+                        height: 500px;
+                    }
+                }
+            }
+
+            .pcontRight{
+                width: 40%;
+            }
+        }
+    }
+
+
+    @media screen and (max-width: $tabletBreakpoint){
+
+        .pcontMain{
+            flex-direction: column;
+            padding: 1em;
+
+            .pcontLeft{
+                width: auto;
+                .largeImg{
+                    img{
+                        height: 460px;
+                    }
+                }
+            }
+
+            .pcontRight{
+                width: auto;
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobileBreakpoint){
+
+        .pcontMain{
+            .pcontLeft{
+                .largeImg{
+                    img{
+                        height: 380px;
+                    }
+                }
+
+                .smallImg{
+                    img{
+                        height: 100px;
+                    }
+                }
+            }
+
+            .pcontRight{
+                button{
+                    height: 35px;
+                    font-size: 0.8em;
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                .price{
+                    font-size: 1.3em;
+                    font-weight: 600;
+                }
+
+                .pdescrip{
+                    font-size: 0.8em;
+                }
+
+                .psize{
+                    margin-top: 30px;
+                    .psizeHeading{
+                       font-size: 1.3em;
+                    }
+                }
+
+                .pactions{
+                    margin-top: 10px;
+                    button{
+                        height: 35px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+
+.noticeContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6em 4em;
+    font-size: 1em;
+    font-weight: 300;
+    background-color: $cardWhite;
+
+    .noticeBox {
+        text-align: center;
+
+        a {
+            color: $accentColor;
+            font-weight: 600;
+        }
+    }
+
+    @media screen and (max-width: $desktopBreakpoint) {
+        font-size: 0.8em;
+    }
+
+    @media screen and (max-width: $tabletBreakpoint) {
+        font-size: 0.6em;
+    }
+}
