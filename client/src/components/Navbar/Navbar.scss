@@ -5,11 +5,23 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 2rem;
+    z-index: +5;
 
     .nav-right{
         display: flex;
         align-items: center;
         gap: $spacingMedium;
+
+        .cartBox{
+            display: none;
+            position: absolute;
+            top: 100px;
+            right: 100px;
+
+            &.active{
+                display: flex;
+            }
+        }
     }
 
     @media screen and (max-width: $tabletBreakpoint) {
