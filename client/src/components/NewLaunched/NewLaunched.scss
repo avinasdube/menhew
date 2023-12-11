@@ -21,6 +21,7 @@
 
         .tag{
             background-color: $accentColor;
+            width: -moz-fit-content;
             width: fit-content;
             position: absolute;
             top: 20px;
@@ -33,6 +34,7 @@
             left: 20px;
             bottom: 20px;
             padding: 4px;
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             background-color: #ffffff4d;
         }
