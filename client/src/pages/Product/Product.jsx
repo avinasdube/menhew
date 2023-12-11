@@ -34,19 +34,24 @@ const Product = () => {
           <Heading>Himalaya Printed T-Shirt</Heading>
           <div className="price">&#8377; 899</div>
           <div className="pdescrip">Pure cotton brown printed T-Shirt with Himalaya image</div>
+          <div className="pCount">
+            <button className="pButton">-</button>
+            <span>3</span>
+            <button className="pButton">+</button>
+          </div>
           <div className="psize">
             <div className="psizeHeading">Size</div>
             <div className="sizeButtons">
-              <button>S</button>
-              <button>M</button>
-              <button>L</button>
-              <button>XL</button>
+              <button className="pButton">S</button>
+              <button className="pButton">M</button>
+              <button className="pButton">L</button>
+              <button className="pButton">XL</button>
             </div>
           </div>
           <div className="pactions">
-            <button><img src={fav} alt=''></img></button>
-            <button><img src={cart} alt=''></img></button>
-            <button>CHECKOUT</button>
+            <button className="pButton"><img src={fav} alt=''></img></button>
+            <button className="pButton"><img src={cart} alt=''></img></button>
+            <button className="pButton">CHECKOUT</button>
           </div>
         </div>
       </main>

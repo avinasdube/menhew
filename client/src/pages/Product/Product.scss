@@ -11,7 +11,7 @@
     flex-direction: column;
 }
 
-button {
+.pButton {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,6 +28,15 @@ button {
     img {
         width: 25px;
         height: 25px;
+    }
+
+    &:hover {
+        background-color: $accentColor;
+        color: white;
+
+        img {
+            filter: invert(1);
+        }
     }
 }
 
@@ -64,7 +73,7 @@ button {
         .pcontRight {
             width: 50%;
             font-family: $styleFont;
-            gap: 10px;
+            gap: 15px;
 
             .price {
                 font-size: 1.6em;
@@ -76,8 +85,19 @@ button {
                 font-size: 0.9em;
             }
 
+            .pCount {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                span {
+                    font-weight: 600;
+                }
+            }
+
             .psize {
-                margin-top: 40px;
+                margin-top: 20px;
                 gap: 10px;
 
                 .psizeHeading {
@@ -88,14 +108,6 @@ button {
                 .sizeButtons {
                     flex-direction: row;
                     gap: 10px;
-
-                    button {
-
-                        &:hover {
-                            background-color: $accentColor;
-                            color: white;
-                        }
-                    }
                 }
             }
 
@@ -106,99 +118,104 @@ button {
                 gap: 10px;
                 margin-top: 20px;
 
-                button {
+                .pButton {
                     height: 45px;
                 }
             }
         }
     }
 
-    @media screen and (max-width: $desktopBreakpoint){
+    @media screen and (max-width: $desktopBreakpoint) {
 
-        .pcontMain{
-            .pcontLeft{
+        .pcontMain {
+            .pcontLeft {
                 width: 60%;
-                .largeImg{
-                    img{
+
+                .largeImg {
+                    img {
                         height: 500px;
                     }
                 }
             }
 
-            .pcontRight{
+            .pcontRight {
                 width: 40%;
             }
         }
     }
 
 
-    @media screen and (max-width: $tabletBreakpoint){
+    @media screen and (max-width: $tabletBreakpoint) {
 
-        .pcontMain{
+        .pcontMain {
             flex-direction: column;
             padding: 1em;
 
-            .pcontLeft{
+            .pcontLeft {
                 width: auto;
-                .largeImg{
-                    img{
+
+                .largeImg {
+                    img {
                         height: 460px;
                     }
                 }
             }
 
-            .pcontRight{
+            .pcontRight {
                 width: auto;
             }
         }
     }
 
-    @media screen and (max-width: $mobileBreakpoint){
+    @media screen and (max-width: $mobileBreakpoint) {
 
-        .pcontMain{
-            .pcontLeft{
-                .largeImg{
-                    img{
+        .pcontMain {
+            .pcontLeft {
+                .largeImg {
+                    img {
                         height: 380px;
                     }
                 }
 
-                .smallImg{
-                    img{
+                .smallImg {
+                    img {
                         height: 100px;
                     }
                 }
             }
 
-            .pcontRight{
-                button{
+            .pcontRight {
+                .pButton {
                     height: 35px;
                     font-size: 0.8em;
-                    img{
+
+                    img {
                         width: 20px;
                         height: 20px;
                     }
                 }
 
-                .price{
+                .price {
                     font-size: 1.3em;
                     font-weight: 600;
                 }
 
-                .pdescrip{
+                .pdescrip {
                     font-size: 0.8em;
                 }
 
-                .psize{
+                .psize {
                     margin-top: 30px;
-                    .psizeHeading{
-                       font-size: 1.3em;
+
+                    .psizeHeading {
+                        font-size: 1.3em;
                     }
                 }
 
-                .pactions{
+                .pactions {
                     margin-top: 10px;
-                    button{
+
+                    .pButton {
                         height: 35px;
                     }
                 }
