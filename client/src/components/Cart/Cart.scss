@@ -1,24 +1,5 @@
 @import '../../styles/variables';
 
-.cpBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $mainBg;
-    font-family: $styleFont;
-    font-weight: 600;
-    outline: none;
-    border: none;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 0.5em;
-
-    &:hover {
-        background-color: $accentColor;
-        color: $cardWhite;
-    }
-}
-
 .cartContainer {
     display: flex;
     flex-direction: column;
@@ -31,6 +12,25 @@
     backdrop-filter: blur(20px);
     background-color: #ffffff6a;
     color: black;
+
+    .cpBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $mainBg;
+        font-family: $styleFont;
+        font-weight: 600;
+        outline: none;
+        border: none;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 0.5em;
+
+        &:hover {
+            background-color: $accentColor;
+            color: $cardWhite;
+        }
+    }
 
     .cartProductsBox {
         display: flex;
@@ -96,6 +96,89 @@
             .totalPrice {
                 font-size: 1.5em;
                 font-weight: 600;
+            }
+        }
+    }
+
+    @media screen and (max-width: $tabletBreakpoint) {
+        width: 360px;
+        height: 420px;
+
+        .cpBtn {
+            font-size: 0.7em;
+        }
+
+        .cartProductsBox {
+            height: 380px;
+
+            .cartProduct {
+                .cpImage {
+                    img {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+
+                .cpDetails {
+
+                    .cpTitle {
+                        font-size: 1em;
+                    }
+
+                    .cpCountSize {
+                        font-size: 0.7em;
+                        gap: 10px;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+
+        .totalSection {
+            .totalSectionBox {
+                .totalPrice {
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobileBreakpoint) {
+        width: 280px;
+
+        .cpBtn {
+            font-size: 0.6em;
+        }
+
+        .cartProductsBox {
+
+            .cartProduct {
+                .cpImage {
+                    img {
+                        width: 70px;
+                        height: 70px;
+                    }
+                }
+
+                .cpDetails {
+                    gap: 5px;
+
+                    .cpTitle {
+                        font-size: 0.8em;
+                    }
+
+                    .cpCountSize {
+                        font-size: 0.6em;
+                    }
+                }
+            }
+        }
+
+        .totalSection {
+            .totalSectionBox {
+                .totalPrice {
+                    font-size: 1em;
+                }
             }
         }
     }
