@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config()
 
+// connecting to mongodb atlas database 
 const connectDB = async () => {
     try {
         const connectionInstance = await mongoose.connect(process.env.MONGODB_URI)
