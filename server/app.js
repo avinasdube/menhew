@@ -3,10 +3,12 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './config/dbconfig.js';
 
+// importing routes
 import shirtsRoute from './routes/shirtsRoute.js';
 
 dotenv.config();
 
+// creating an express app
 const app = express()
 const PORT = process.env.PORT;
 
@@ -20,9 +22,6 @@ app.use(express.json())
 
 // route
 app.use("/api", shirtsRoute)
-app.get("/", (req, res) => {
-    res.status(201).json({ message: "yess" });
-})
 
 // start server if database is connected
 connectDB()
