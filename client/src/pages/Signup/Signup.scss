@@ -1,0 +1,116 @@
+@import '../../styles/variables';
+
+.authContainer,
+.authBox,
+form,
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authContainer {
+    justify-content: center;
+    height: 100vh;
+    padding: 1rem;
+    font-family: $styleFont;
+    background-image: url('../../assets/images/listwelcome.jpg');
+    background-size: cover;
+
+    .authBox {
+        gap: 20px;
+
+        form {
+            align-items: normal;
+            padding: 1.5rem;
+            gap: 10px;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            background-color: #ffffff96;
+
+            .inputBox {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+
+                .inputLabel {
+                    font-size: 1.4em;
+                    font-weight: 600;
+                }
+
+                .inputField {
+                    border: none;
+                    outline: none;
+                    padding: 0.3em 0.7em;
+                    width: 200px;
+                    font-family: $bodyFont;
+                    font-size: 1em;
+                }
+            }
+
+            .authButton {
+                background-color: $cardWhite;
+                border: none;
+                outline: none;
+                padding: 0.8em;
+                font-family: $styleFont;
+                font-size: 1.2em;
+                font-weight: 600;
+
+                &:hover {
+                    background-color: $accentColor;
+                    color: $cardWhite;
+                }
+            }
+
+            .already {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+
+        @media screen and (max-width: $tabletBreakpoint) {
+            form{
+                padding: 1.3rem;
+
+                .inputBox{
+                    .inputLabel{
+                        font-size: 1em;
+                    }
+
+                    .inputField{
+                        padding: 0.2em 0.6em;
+                        font-weight: 300;
+                    }
+                }
+
+                .authButton{
+                    font-size: 1em;
+                }
+
+                .already{
+                    font-size: 0.6em;
+                }
+            }
+        }
+
+        @media screen and (max-width: $mobileBreakpoint) {
+            form{
+                padding: 1rem;
+
+                .inputBox{
+                    .inputLabel{
+                        font-size: 0.8em;
+                    }
+
+                    .inputField{
+                        padding: 0.2em 0.5em;
+                        width: 140px;
+                    }
+                }
+            }
+        }
+    }
+}
