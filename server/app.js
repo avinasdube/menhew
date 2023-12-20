@@ -4,23 +4,25 @@ import cors from 'cors';
 import connectDB from './config/dbconfig.js';
 import cookieParser from 'cookie-parser';
 
-// importing routes
-
-dotenv.config();
+dotenv.config({
+    path: './.env'
+});
 
 // creating an express app
 const app = express()
-const PORT = process.env.PORT;
 
-// middleware
+const PORT = process.env.PORT;
+const corsOrigins = process.env.CORS_ORIGIN.split(','); // extract and split CORS origins from the environment variable
+
+// middleware configuration
 const corsOptions = {
-    origin: ["https://menhew.onrender.com", "http://localhost:3000"], // frontend URI (ReactJS)
+    origin: corsOrigins, // frontend URI (ReactJS)
     credentials: true
 }
 
 app.use(cors(corsOptions));
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json({ limit: "16kb" }))
+app.use(express.urlencoded({ extended: true, limit: "16kb" }))
 app.use(cookieParser());
 
 // importing routes and binding them
@@ -32,7 +34,7 @@ app.use("/api/auth", authRoute)
 connectDB()
     .then(() => {
         app.listen(PORT || 8800, () => {
-            console.log(`Server is running at port : ${PORT}`);
+            console.log(`⚙️  Server is running at port : ${PORT}`);
             app.get("/", (req, res) => {
                 res.status(201).send("Hi, from app.js ! Your server is running successfully.")
             })
