@@ -1,8 +1,5 @@
 // setting up mongodb connection with mongoose
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-
-dotenv.config()
 
 // connecting to mongodb atlas database 
 const connectDB = async () => {

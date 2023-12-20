@@ -4,5 +4,6 @@ export const API_BASE_URL = process.env.NODE_ENV === 'development'
     : "https://menhew-server.onrender.com/";
 
 export const API_ENDPOINTS = {
-    signup: "/auth/signup"
+    signup: "/auth/signup",
+    login: "/auth/login",
 }
