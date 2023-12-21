@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 
-// defining schema for user signing up/in
+// defining schema for user (both signup and login)
 const userSchema = new mongoose.Schema({
     fullname: {
         type: String,
