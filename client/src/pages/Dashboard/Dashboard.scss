@@ -1,0 +1,61 @@
+@import '../../styles/variables';
+
+.dashboardContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: $styleFont;
+
+    .dashBody {
+        display: flex;
+        height: 100%;
+
+        .dashSidebar {
+            display: flex;
+            flex-direction: column;
+            gap: $spacingMedium;
+            flex: 1;
+            padding: 2em;
+            background-color: $cardWhite;
+
+            .dashHeader {
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .dashSubHeader {
+                padding: 1em 0;
+                border-bottom: 1px solid $mainBg
+            }
+
+            .menuBox {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: $spacingSmall;
+
+                .menuBtn {
+                    outline: none;
+                    border: none;
+                    width: 100%;
+                    height: 40px;
+                    font-family: $styleFont;
+                    font-weight: 600;
+
+                    &:hover {
+                        background-color: $mainBg;
+                    }
+
+                    &:active {
+                        transform: scale(0.9);
+                    }
+                }
+            }
+        }
+
+        .dashMain {
+            flex: 4;
+            padding: 2em;
+        }
+    }
+}
