@@ -1,0 +1,115 @@
+@import '../../styles/variables';
+
+.addProductFormContainer,
+.addProductFormBox,
+.addProductHeading,
+.formFields,
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+}
+
+.inputBox {
+    gap: $spacingSmall;
+    border: 1px solid $mainBg;
+    padding: 1em;
+
+    .prodInput {
+        outline: none;
+        border: 1px solid $mainBg;
+        background-color: transparent;
+        height: 20px;
+        padding: 0.2em 0.6em;
+        font-family: $bodyFont;
+        font-weight: 300;
+    }
+}
+
+.addProductFormContainer {
+
+    .addProductFormBox {
+        gap: $spacingMedium;
+
+        .addProductHeader {
+            display: flex;
+            justify-content: space-between;
+
+            .addProductHeading {
+                font-size: 12px;
+                gap: $spacingSmall;
+
+                .addProductHeading1 {
+                    font-size: 30px;
+                    font-weight: 600;
+                }
+            }
+
+            .addProductActions {
+                .publishBtn {
+                    outline: none;
+                    border: none;
+                    background-color: $accentColor;
+                    color: white;
+                    font-family: $styleFont;
+                    font-weight: 600;
+                    font-size: 16px;
+                    padding: 0.5em;
+                }
+            }
+        }
+
+        .formFields {
+            border: 1px solid $mainBg;
+            padding: 1em;
+            gap: $spacingMedium;
+
+            .basicInfoBox {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(auto, 1fr);
+                gap: $spacingMedium;
+            }
+
+            .imgInfoBox {
+                .uploadProductImages {
+                    display: flex;
+                    gap: 20px;
+
+                    .renderdImages {
+                        position: relative;
+
+                        .inputLabel, .previewImage{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100px;
+                            height: 100px;
+                        }
+
+                        .inputLabel {
+                            border: 1px solid $mainBg;
+                            .altImg {
+                                width: 40px;
+                                height: 40px;
+                            }
+                        }
+
+                        .previewImage {
+                            position: absolute;
+                            top:0;
+
+                            .pvImg {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+}

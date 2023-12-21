@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer';
 import ProductList from './components/ProductList/ProductList';
 import Product from './pages/Product/Product';
 import Notice from './components/Notice/Notice';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
 
@@ -65,6 +66,10 @@ function App() {
     {
       path: '/login',
       element: <Login />
+    },
+    {
+      path: '/dashboard',
+      element: <Dashboard />
     }
   ])
 
