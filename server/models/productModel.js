@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
+    productId: {
+        type: String,
+        required: true,
+    },
     productName: {
         type: String,
         required: true
@@ -20,22 +24,13 @@ const productSchema = new mongoose.Schema({
         default: 0,
     },
     productCategory: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Category",
+        type: String,
         required: true,
     },
-    images: [
-        {
-            data: {
-                type: Buffer,
-                required: true,
-            },
-            contentType: {
-                type: String,
-                required: true,
-            },
-        },
-    ],
+    images: {
+        type: [String],
+        default: [],
+    },
 }, { timestamps: true });
 
 export const Product = mongoose.model("Product", productSchema);
