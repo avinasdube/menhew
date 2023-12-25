@@ -11,7 +11,7 @@ export const signup = async (req, res) => {
             await newUser.save();
             res.status(201).json({ message: 'User registered successfully' });
         } else {
-            res.status(400).json({ error: 'Email already exists.' })
+            res.status(400).json({ error: 'Email already exists' })
         }
 
     } catch (error) {
@@ -30,10 +30,33 @@ export const login = async (req, res) => {
             return res.status(401).json({ error: 'Email Not Found' })
         }
 
+        // comparing the password using custom method of User model
         const passwordMatch = await user.comparePassword(password);
 
         if (passwordMatch) {
-            res.status(200).json({ message: 'Login Successful' });
+
+            const accessToken = user.generateAccessToken();
+            const refreshToken = user.generateRefreshToken();
+            user.refreshToken = refreshToken;
+
+            await user.save({ validateBeforeSave: false })
+
+            const loggedInUser = await User.findOne({ email }).select("-password -refreshToken")
+
+            const options = {
+                httpOnly: true,
+                secure: true
+            }
+
+            return res
+            .status(200)
+            .cookie("accessToken", accessToken, options)
+            .cookie("refreshToken", refreshToken, options)
+            .json({
+                message: 'Login Successful',
+                user: loggedInUser, accessToken, refreshToken
+            });
+
         } else {
             res.status(401).json({ error: "Password Doesn't Matches" })
         }
