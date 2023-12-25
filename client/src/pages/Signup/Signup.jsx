@@ -4,9 +4,12 @@ import Heading from '../../components/Heading/Heading';
 import NavButton from '../../components/NavButton/NavButton';
 import { signin } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
+import Toast from '../../components/Toast/Toast';
 
 const Signup = () => {
   const navigate = useNavigate();
+
+  const [errorMessage, setErrorMessage] = useState(null);
 
   // useState hook to set user input
   const [inputs, setInputs] = useState({
@@ -30,13 +33,17 @@ const Signup = () => {
       const response = await signin(inputs);
       console.log(response);
       navigate('/login');
-    } catch (error) {
-      console.error("Unexpected Error !", error);
+    } catch (err) {
+      setErrorMessage(err?.response?.data?.error);
+      setTimeout(()=>{
+        setErrorMessage(null);
+      },3000)
     }
   }
 
   return (
     <div className="authContainer" data-testid="signup">
+    <Toast errorMessage={errorMessage}/>
       <div className="authBox">
         <Heading>Signup to menhew</Heading>
         <form onSubmit={handleSubmit}>
