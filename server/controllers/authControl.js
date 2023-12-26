@@ -1,5 +1,34 @@
 import { User } from "../models/userModel.js";
 
+/*---------------------------------------------------------------------*/
+
+
+// controller function to handle access and refresh token generation
+const generateAccessAndRefreshToken = async (userId) => {
+    try {
+        const user = await User.findById(userId);
+        // generating access and refresh tokens
+        const accessToken = user.generateAccessToken();
+        const refreshToken = user.generateRefreshToken();
+
+        // updating refreshToken of user
+        user.refreshToken = refreshToken;
+
+        // saving the refresh token to the database without validation
+        await user.save({ validateBeforeSave: false })
+
+        return { accessToken, refreshToken }
+
+    } catch (error) {
+        res.status(500).json({ error: "Something went wrong while generating refresh and access tokens" })
+    }
+}
+
+
+/*--------------------------------------------------------------------*/
+
+
+// controller function for user signup
 export const signup = async (req, res) => {
     const { fullname, email, password } = req.body;
 
@@ -20,6 +49,11 @@ export const signup = async (req, res) => {
     }
 }
 
+
+/*--------------------------------------------------------------------*/
+
+
+// controller function for user login
 export const login = async (req, res) => {
     const { email, password } = req.body;
 
@@ -35,27 +69,26 @@ export const login = async (req, res) => {
 
         if (passwordMatch) {
 
-            const accessToken = user.generateAccessToken();
-            const refreshToken = user.generateRefreshToken();
-            user.refreshToken = refreshToken;
+            // calling generateAccessTokenAndRefreshTokens and destructuring tokens
+            const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id)
 
-            await user.save({ validateBeforeSave: false })
+            const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
 
-            const loggedInUser = await User.findOne({ email }).select("-password -refreshToken")
-
+            // creating options for cookie configuration
             const options = {
                 httpOnly: true,
-                secure: true
+                // secure: true
             }
 
+            // setting cookies in the response
             return res
-            .status(200)
-            .cookie("accessToken", accessToken, options)
-            .cookie("refreshToken", refreshToken, options)
-            .json({
-                message: 'Login Successful',
-                user: loggedInUser, accessToken, refreshToken
-            });
+                .status(200)
+                .cookie("accessToken", accessToken, options)
+                .cookie("refreshToken", refreshToken, options)
+                .json({
+                    message: 'Login Successful',
+                    user: loggedInUser, accessToken, refreshToken
+                });
 
         } else {
             res.status(401).json({ error: "Password Doesn't Matches" })
@@ -66,3 +99,40 @@ export const login = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' })
     }
 }
+
+
+/*----------------------------------------------------------------------*/
+
+
+// controller function for user logout
+export const logout = async (req, res) => {
+
+    // updating refreshToken of user logging out
+    await User.findByIdAndUpdate(
+        req.user._id, // fetched from authMiddleware
+        {
+            $set: {
+                refreshToken: undefined
+            }
+        }
+    )
+
+    // cookie config options
+    const options = {
+        httpOnly: true,
+        //secure: true
+    }
+
+    // returning response
+    return res
+        .status(200)
+        .clearCookie("accessToken", options)
+        .clearCookie("refreshToken", options)
+        .json({ message: "User Logged Out Successfully" })
+}
+
+
+/*----------------------------------------------------------------------*/
+
+
+
