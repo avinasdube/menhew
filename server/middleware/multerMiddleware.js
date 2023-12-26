@@ -1,5 +1,4 @@
 import multer from "multer";
-import { Product } from "../models/productModel.js";
 import fs from 'fs';
 
 const storage = multer.diskStorage({
