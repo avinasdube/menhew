@@ -1,33 +1,24 @@
 import {
   createHashRouter,
   RouterProvider,
-  Outlet
 } from 'react-router-dom';
 import React from 'react';
 
+// importing pages and components
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Categories from './pages/Categories/Categories';
 import Favourites from './pages/Favourites/Favourites';
-import Footer from './components/Footer/Footer';
 import ProductList from './components/ProductList/ProductList';
 import Product from './pages/Product/Product';
-import Notice from './components/Notice/Notice';
 import Dashboard from './pages/Dashboard/Dashboard';
 
+// importing authentication layout
+import Protected from './layout/AuthLayout';
+import Layout from './layout/AppLayout';
+
 function App() {
-
-  const Layout = () => {
-    return (
-      <>
-        <Notice />
-        <Outlet />
-        <Footer />
-      </>
-    )
-  }
-
   const router = createHashRouter([
     {
       path: '/',
@@ -60,16 +51,31 @@ function App() {
       ]
     },
     {
+      // doesn't requires authentication to access
       path: '/signup',
-      element: <Signup />
+      element: (
+        <Protected authentication={false}>
+          <Signup />
+        </Protected>
+      )
     },
     {
+      // doesn't requires authentication to access
       path: '/login',
-      element: <Login />
+      element: (
+        <Protected authentication={false}>
+          <Login />
+        </Protected>
+      )
     },
     {
+      // requires authentication to access
       path: '/dashboard',
-      element: <Dashboard />
+      element: (
+        <Protected authentication={true}>
+          <Dashboard />
+        </Protected>
+      )
     }
   ])
 

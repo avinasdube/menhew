@@ -7,7 +7,7 @@ import { API_BASE_URL, API_ENDPOINTS } from '../utils/constants';
 // creating an instance of axios with baseURL
 const API = axios.create({
     baseURL: API_BASE_URL,
-    // timeout: 5000, // Timeout for requests in milliseconds
+    withCredentials: true, // enable credentials with each request/response
     headers: {
         'Content-Type': 'application/json', // Default content type for requests
         // 'Authorization': 'Bearer YOUR_ACCESS_TOKEN', // Default authorization header
