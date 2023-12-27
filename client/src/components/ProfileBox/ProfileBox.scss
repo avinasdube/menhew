@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+.profileBoxContainer{
+    background-color: salmon;
+    height: fit-content;
+    width: 120px;
+    font-family: $styleFont;
+    padding: 0.8em;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: #ffffff6a;
+    color: black;
+
+    .profileBoxContent{
+        display: flex;
+        flex-direction: column;
+        gap: $spacingSmall;
+
+        .logoutBtn{
+            background-color: $cardWhite;
+            font-family: $styleFont;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            padding: 0.4em;
+
+            &:hover{
+                background-color: $accentColor;
+                color: white;
+            }
+
+            &:active{
+                transform: scale(0.9);
+            }
+        }
+    }
+}

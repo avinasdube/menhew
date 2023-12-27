@@ -17,6 +17,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 // importing authentication layout
 import Protected from './layout/AuthLayout';
 import Layout from './layout/AppLayout';
+import Profile from './pages/Profile/Profile';
 
 function App() {
   const router = createHashRouter([
@@ -39,6 +40,10 @@ function App() {
         {
           path: '/favourites',
           element: <Favourites />
+        },
+        {
+          path: '/profile/:fullname',
+          element: <Profile />
         },
         {
           path: '/products/:category',

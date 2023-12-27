@@ -4,9 +4,13 @@ import NavButton from '../../components/NavButton/NavButton';
 import { login } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
 import Toast from '../../components/Toast/Toast';
+import {useDispatch} from 'react-redux';
+import { userLogin } from '../../reducers/authSlice';
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch()
 
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -29,7 +33,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await login(inputs);
-      console.log(response);
+      dispatch(userLogin(response.data))
       navigate('/home');
     } catch (err) {
       setErrorMessage(err?.response?.data?.error);

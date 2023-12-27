@@ -1,7 +1,6 @@
 @import '../../styles/variables';
 
 .dashboardContainer {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: $styleFont;
@@ -56,6 +55,48 @@
         .dashMain {
             flex: 4;
             padding: 2em;
+        }
+
+        @media screen and (max-width: $desktopBreakpoint) {
+            flex-direction: column;
+
+            .dashSidebar{
+                background-color: transparent;
+                .menuBox{
+                    flex-direction: row;
+                }
+            }
+        }
+
+        @media screen and (max-width: $tabletBreakpoint) {
+
+            .dashSidebar{
+                padding: 1em;
+                gap: $spacingSmall;
+
+                .dashSubHeader{
+                    padding: 0.5em 0 1em 0;
+                }
+
+                .menuBox{
+                    .menuBtn{
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .dashMain{
+                padding: 1em;
+            }
+        }
+
+        @media screen and (max-width: $mobileBreakpoint) {
+            .dashSidebar{
+
+                .dashHeader{
+                    font-size: 22px;
+                }
+            }
         }
     }
 }
