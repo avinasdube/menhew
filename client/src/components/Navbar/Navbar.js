@@ -11,13 +11,19 @@ import profile from '../../assets/icons/profile.png';
 import NavButton from '../NavButton/NavButton';
 import Logo from '../Logo/Logo';
 import Cart from '../Cart/Cart';
+import ProfileBox from '../ProfileBox/ProfileBox';
 
 const Navbar = ({ filter }) => {
 
   const [cartOpen, setCartOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
 
-  const handleClick = () => {
+  const handleCart = () => {
     cartOpen === false ? setCartOpen(true) : setCartOpen(false);
+  }
+
+  const handleProfile = () => {
+    profileOpen === false ? setProfileOpen(true) : setProfileOpen(false);
   }
 
   return (
@@ -27,10 +33,11 @@ const Navbar = ({ filter }) => {
       </section>
       <section className="nav-right">
         <button className="linkContainer"><img src={search} alt=''></img></button>
-        <NavButton link={"/categories"} navImg={categories} filter={filter} onClick={handleClick} />
-        <button className="linkContainer" onClick={handleClick}><img src={cart} alt=''></img></button>
+        <NavButton link={"/categories"} navImg={categories} filter={filter} />
+        <button className="linkContainer" onClick={handleCart}><img src={cart} alt=''></img></button>
         <div className={`cartBox ${cartOpen === true ? 'active' : ''}`}><Cart /></div>
-        <button className="linkContainer"><img src={profile} alt=''></img></button>
+        <button className="linkContainer" onClick={handleProfile}><img src={profile} alt=''></img></button>
+        <div className={`profileBox ${profileOpen === true ? 'active' : ''}`}><ProfileBox /></div>
       </section>
     </nav>
   )
