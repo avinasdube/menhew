@@ -6,5 +6,6 @@ export const API_BASE_URL = process.env.NODE_ENV === 'development'
 export const API_ENDPOINTS = {
     signup: "/auth/signup",
     login: "/auth/login",
+    logout: "/auth/logout",
     addnewproduct: "/product/addnewproduct"
 }
