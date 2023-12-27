@@ -74,12 +74,13 @@
             .imgInfoBox {
                 .uploadProductImages {
                     display: flex;
-                    gap: 20px;
+                    gap: $spacingLarge;
 
                     .renderdImages {
                         position: relative;
 
-                        .inputLabel, .previewImage{
+                        .inputLabel,
+                        .previewImage {
                             display: flex;
                             align-items: center;
                             justify-content: center;
@@ -89,6 +90,7 @@
 
                         .inputLabel {
                             border: 1px solid $mainBg;
+
                             .altImg {
                                 width: 40px;
                                 height: 40px;
@@ -97,7 +99,7 @@
 
                         .previewImage {
                             position: absolute;
-                            top:0;
+                            top: 0;
 
                             .pvImg {
                                 width: 100%;
@@ -110,6 +112,89 @@
             }
 
 
+        }
+
+        @media screen and (max-width: $tabletBreakpoint) {
+            .addProductHeader {
+                .addProductHeading {
+                    font-size: 10px;
+
+                    .addProductHeading1 {
+                        font-size: 24px;
+                    }
+                }
+
+                .addProductActions {
+                    .publishBtn {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .formFields {
+                border: none;
+                padding: 0em;
+
+                .imgInfoBox {
+                    .uploadProductImages {
+                        gap: $spacingMedium;
+
+                        .renderdImages {
+
+                            .inputLabel,
+                            .previewImage {
+                                width: 80px;
+                                height: 80px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: $mobileBreakpoint) {
+            .addProductHeader {
+                .addProductHeading {
+                    font-size: 10px;
+                    gap: 5px;
+
+                    .addProductHeading1 {
+                        font-size: 20px;
+                    }
+                }
+
+                .addProductActions {
+                    .publishBtn {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .formFields {
+                .basicInfoBox {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+
+                .imgInfoBox {
+                    display: flex;
+                    flex-direction: column;
+
+                    .uploadProductImages {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-template-rows: repeat(auto, 1fr);
+
+                        .renderdImages {
+
+                            .inputLabel,
+                            .previewImage {
+                                width: 100%;
+                                height: 120px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
