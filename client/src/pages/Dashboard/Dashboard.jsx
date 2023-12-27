@@ -1,10 +1,12 @@
 import React from 'react';
 import './Dashboard.scss';
 import AddProduct from '../../components/AddProductForm/AddProduct';
+import Navbar from '../../components/Navbar/Navbar';
 
 const Dashboard = () => {
     return (
         <div className="dashboardContainer">
+            <Navbar />
             <div className="dashBody">
                 <div className="dashSidebar">
                     <div className="dashHeader">Admin Dashboard</div>
