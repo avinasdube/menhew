@@ -1,4 +1,5 @@
 import { User } from "../models/userModel.js";
+import jwt from "jsonwebtoken";
 
 /*---------------------------------------------------------------------*/
 
@@ -77,7 +78,7 @@ export const login = async (req, res) => {
             // creating options for cookie configuration
             const options = {
                 httpOnly: true,
-                // secure: true
+                secure: true
             }
 
             // setting cookies in the response
@@ -120,7 +121,7 @@ export const logout = async (req, res) => {
     // cookie config options
     const options = {
         httpOnly: true,
-        //secure: true
+        secure: true
     }
 
     // returning response
@@ -135,4 +136,43 @@ export const logout = async (req, res) => {
 /*----------------------------------------------------------------------*/
 
 
+// controller function to refresh access token of user when expired
+export const refreshAccessToken = async (req, res) => {
+    try {
+        const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken;
 
+        const decodedToken = jwt.verify(
+            incomingRefreshToken,
+            process.env.REFRESH_TOKEN_SECRET
+        )
+
+        try {
+            const user = await User.findById((decodedToken?._id))
+
+            if (incomingRefreshToken !== user?.refreshToken) {
+                res.status(401).json({ error: "Refresh Token Expired or Used" })
+            }
+
+            const options = {
+                httpOnly: true,
+                secure: true
+            }
+
+            const { accessToken, newRefreshToken } = await generateAccessAndRefreshToken(user._id);
+
+            return res
+                .status(200)
+                .cookie("accessToken", accessToken)
+                .cookie("refreshToken", newRefreshToken)
+                .json({
+                    message: "Token Refreshed",
+                    accessToken, refreshToken: newRefreshToken
+                })
+        } catch (error) {
+            res.status(401).json({ error: "Invalid Refresh Token" });
+        }
+
+    } catch (error) {
+        res.status(401).json({ error: "Unauthorized Request" })
+    }
+}
