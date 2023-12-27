@@ -12,11 +12,13 @@ import NavButton from '../NavButton/NavButton';
 import Logo from '../Logo/Logo';
 import Cart from '../Cart/Cart';
 import ProfileBox from '../ProfileBox/ProfileBox';
+import { useSelector } from 'react-redux';
 
 const Navbar = ({ filter }) => {
 
   const [cartOpen, setCartOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
   const handleCart = () => {
     cartOpen === false ? setCartOpen(true) : setCartOpen(false);
@@ -36,8 +38,8 @@ const Navbar = ({ filter }) => {
         <NavButton link={"/categories"} navImg={categories} filter={filter} />
         <button className="linkContainer" onClick={handleCart}><img src={cart} alt=''></img></button>
         <div className={`cartBox ${cartOpen === true ? 'active' : ''}`}><Cart /></div>
-        <button className="linkContainer" onClick={handleProfile}><img src={profile} alt=''></img></button>
-        <div className={`profileBox ${profileOpen === true ? 'active' : ''}`}><ProfileBox /></div>
+        {currentUser ? <button className="linkContainer" onClick={handleProfile}><img src={profile} alt=''></img></button> : ''}
+        {currentUser ? <div className={`profileBox ${profileOpen === true ? 'active' : ''}`}><ProfileBox /></div> : ''}
       </section>
     </nav>
   )
