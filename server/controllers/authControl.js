@@ -78,7 +78,8 @@ export const login = async (req, res) => {
             // creating options for cookie configuration
             const options = {
                 httpOnly: true,
-                secure: true
+                secure: true,
+                sameSite: 'None'
             }
 
             // setting cookies in the response
@@ -121,7 +122,8 @@ export const logout = async (req, res) => {
     // cookie config options
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: 'None'
     }
 
     // returning response
@@ -155,15 +157,16 @@ export const refreshAccessToken = async (req, res) => {
 
             const options = {
                 httpOnly: true,
-                secure: true
+                secure: true,
+                sameSite: 'None'
             }
 
             const { accessToken, newRefreshToken } = await generateAccessAndRefreshToken(user._id);
 
             return res
                 .status(200)
-                .cookie("accessToken", accessToken)
-                .cookie("refreshToken", newRefreshToken)
+                .cookie("accessToken", options)
+                .cookie("refreshToken", options)
                 .json({
                     message: "Token Refreshed",
                     accessToken, refreshToken: newRefreshToken
