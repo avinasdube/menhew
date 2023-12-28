@@ -33,7 +33,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await login(inputs);
-      dispatch(userLogin(response.data))
+      dispatch(userLogin(response.data.user))
       navigate('/home');
     } catch (err) {
       setErrorMessage(err?.response?.data?.error);
