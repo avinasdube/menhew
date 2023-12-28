@@ -23,7 +23,11 @@ function App() {
   const router = createHashRouter([
     {
       path: '/',
-      element: <Layout />,
+      element: (
+        <Protected authentication={true}>
+          <Layout />
+        </Protected>
+      ),
       children: [
         {
           path: '/',

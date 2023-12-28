@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 8px solid #3498db;
+        /* Blue color */
+        border-top: 8px solid #f39c12;
+        /* Orange color */
+        border-radius: 50%;
+        animation: rotate 3s linear infinite;
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
