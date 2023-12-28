@@ -23,11 +23,11 @@ const ProfileBox = () => {
         <div className="profileBoxContainer">
             <div className="profileBoxContent">
                 {currentUser ? <NavButton
-                    children={`${currentUser?.user?.fullname}`}
+                    children={`${currentUser?.fullname}`}
                     fweight={600}
                     fsize={'10px'}
                     fcolor={'green'}
-                    link={`/profile/:${currentUser?.user.fullname}`} /> : ''}
+                    link={`/profile/:${currentUser?.fullname}`} /> : ''}
                 <button className="logoutBtn" onClick={handleLogout}>Logout</button>
             </div>
         </div>
