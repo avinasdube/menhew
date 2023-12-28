@@ -4,7 +4,7 @@ import NavButton from '../../components/NavButton/NavButton';
 import { login } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
 import Toast from '../../components/Toast/Toast';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { userLogin } from '../../reducers/authSlice';
 
 const Login = () => {
@@ -37,15 +37,34 @@ const Login = () => {
       navigate('/home');
     } catch (err) {
       setErrorMessage(err?.response?.data?.error);
-      setTimeout(()=>{
+      setTimeout(() => {
         setErrorMessage(null);
-      },3000)
+      }, 3000)
+    }
+  }
+
+  // function to handle guest login
+  const handleGuest = async (e) => {
+    e.preventDefault();
+    const guestInputs = {
+      email: 'guest@gmail.com',
+      password: 'guest@menhew12'
+    }
+    try {
+      const response = await login(guestInputs);
+      dispatch(userLogin(response.data.user))
+      navigate('/home')
+    } catch (err) {
+      setErrorMessage(err?.response?.data?.error);
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 3000)
     }
   }
 
   return (
     <div className="authContainer" data-testid="login">
-      <Toast errorMessage={errorMessage}/>
+      <Toast errorMessage={errorMessage} />
       <div className="authBox">
         <Heading>Login to menhew</Heading>
         <form onSubmit={handleSubmit}>
@@ -58,6 +77,8 @@ const Login = () => {
             <input className="inputField" type="password" name="password" id="passId" onChange={handleChange} key="password" required></input>
           </div>
           <button type="submit" className="authButton">Login</button>
+          <div style={{ textAlign: 'center', fontSize: '12px' }}>or</div>
+          <button className="authButton" onClick={handleGuest}>Login as Guest</button>
           <div className="already">
             Not signed up ? <NavButton fweight={600} fcolor={'#5C8331'} link={'/signup'}>Signup</NavButton> now !
           </div>
