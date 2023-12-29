@@ -6,6 +6,7 @@ import search from '../../assets/icons/search.png';
 import categories from '../../assets/icons/categories.png';
 import cart from '../../assets/icons/cart.png';
 import profile from '../../assets/icons/profile.png';
+import dashImg from '../../assets/icons/dashboard.png';
 
 // IMPORTING COMPONENTS
 import NavButton from '../NavButton/NavButton';
@@ -38,6 +39,7 @@ const Navbar = ({ filter }) => {
         <NavButton link={"/categories"} navImg={categories} filter={filter} />
         <button className="linkContainer" onClick={handleCart}><img src={cart} alt=''></img></button>
         <div className={`cartBox ${cartOpen === true ? 'active' : ''}`}><Cart /></div>
+        {currentUser?.email === process.env.REACT_APP_ADMIN ? <NavButton link={'/dashboard'} navImg={dashImg} /> : ''}
         {currentUser ? <button className="linkContainer" onClick={handleProfile}><img src={profile} alt=''></img></button> : ''}
         {currentUser ? <div className={`profileBox ${profileOpen === true ? 'active' : ''}`}><ProfileBox /></div> : ''}
       </section>
