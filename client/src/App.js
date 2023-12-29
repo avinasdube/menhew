@@ -13,13 +13,14 @@ import Favourites from './pages/Favourites/Favourites';
 import ProductList from './components/ProductList/ProductList';
 import Product from './pages/Product/Product';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Profile from './pages/Profile/Profile';
 
 // importing authentication layout
 import Protected from './layout/AuthLayout';
 import Layout from './layout/AppLayout';
-import Profile from './pages/Profile/Profile';
 
 function App() {
+
   const router = createHashRouter([
     {
       path: '/',
