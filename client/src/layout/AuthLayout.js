@@ -22,7 +22,11 @@ const Protected = ({ children, authentication = true }) => {
     checkAuthentication();
   }, [userDetails, authentication, navigate]);
 
-  return loader ? <Loading /> : <>{children}</>;
+  return loader ?
+    <Loading /> :
+    <>
+      {children}
+    </>;
 };
 
 export default Protected;
