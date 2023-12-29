@@ -11,6 +11,12 @@ export const addNewProduct = async (req, res) => {
 
       const { productId, productName, productDescription, productPrice, productSize, productCategory } = req.body;
 
+      const productCheck = await Product.findOne({ productId });
+
+      if (productCheck) {
+        return res.status(400).json({ error: "Product already exists" })
+      }
+
       const product = new Product({
         productId,
         productName,
@@ -27,7 +33,7 @@ export const addNewProduct = async (req, res) => {
 
       await Product.findByIdAndUpdate(originalId, { images: imageNames });
 
-      res.send('Product details and files uploaded successfully');
+      res.status(200).json({ message: "Uploaded" });
     });
   } catch (error) {
     console.error(error);
@@ -35,3 +41,10 @@ export const addNewProduct = async (req, res) => {
   }
 };
 
+
+/*--------------------------------------------------------------------*/
+
+
+export const getShirts = async (req, res) => {
+
+}
