@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';                     
 import './Dashboard.scss';
 import AddProduct from '../../components/AddProductForm/AddProduct';
 import Navbar from '../../components/Navbar/Navbar';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+    const navigate = useNavigate();
+    const userDetails = useSelector((state) => state.auth.currentUser);
+
+    // Check if the user is admin to conditionally render the Dashboard component
+    const isAvinash = userDetails?.email === process.env.REACT_APP_ADMIN;
+
+    useEffect(() => {
+        // Redirect if the user is not admin
+        if (!isAvinash) {
+            navigate('/');
+        }
+    }, [isAvinash, navigate]); 
+
+    if (!isAvinash) {
+        return null; // Render nothing if not admin
+    }
+
     return (
         <div className="dashboardContainer">
             <Navbar />
