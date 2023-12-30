@@ -12,8 +12,12 @@ const AddProduct = () => {
     const [productCategory, setProductCategory] = useState('');
     const [selectedImages, setSelectedImages] = useState(Array.from({ length: 4 }, () => null)); // creating array of length with each element set to null
 
+    // handling image previews of selected images
     useEffect(() => {
+        // map each selectedImage to it's corresponding object url
         const previews = selectedImages.map(image => image && URL.createObjectURL(image));
+
+        // revoke function: revoke the object urls when the component unmounts or when selected image changes
         return () => previews.forEach(preview => preview && URL.revokeObjectURL(preview));
     }, [selectedImages]);
 
@@ -47,14 +51,15 @@ const AddProduct = () => {
                 formData.append('productCategory', productCategory);
                 formData.append('productId', productId);
 
-                console.log(selectedImages)
-
                 for (const selectedImage of selectedImages) {
                     formData.append('images[]', selectedImage);
                 }
 
                 const response = await addnewproduct(formData);
-                console.log(response);
+
+                if (response?.data?.message === "Uploaded") {
+                    window.location.reload();
+                }
             } catch (error) {
                 console.error('Error uploading images:', error);
             }

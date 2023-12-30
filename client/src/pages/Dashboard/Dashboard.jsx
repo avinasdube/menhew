@@ -10,16 +10,16 @@ const Dashboard = () => {
     const userDetails = useSelector((state) => state.auth.currentUser);
 
     // Check if the user is admin to conditionally render the Dashboard component
-    const isAvinash = userDetails?.email === process.env.REACT_APP_ADMIN;
+    const isAdmin = userDetails?.email === process.env.REACT_APP_ADMIN;
 
     useEffect(() => {
         // Redirect if the user is not admin
-        if (!isAvinash) {
+        if (!isAdmin) {
             navigate('/');
         }
-    }, [isAvinash, navigate]); 
+    }, [isAdmin, navigate]); 
 
-    if (!isAvinash) {
+    if (!isAdmin) {
         return null; // Render nothing if not admin
     }
 
