@@ -17,7 +17,10 @@ const API = axios.create({
 // exporting function with api get/post requests and customized parameters
 export const signin = (inputs) => API.post(`${API_ENDPOINTS.signup}`, inputs);
 export const login = (inputs) => API.post(`${API_ENDPOINTS.login}`, inputs);
-export const logout = ()=>API.get(`${API_ENDPOINTS.logout}`);
-export const addnewproduct = (formData) => API.post(`${API_ENDPOINTS.addnewproduct}`, formData, {headers: {
-    'Content-Type': 'multipart'
-}})
+export const logout = () => API.get(`${API_ENDPOINTS.logout}`);
+export const addnewproduct = (formData) => API.get(`${API_ENDPOINTS.addnewproduct}`, formData, {
+    headers: {
+        'Content-Type': 'multipart'
+    }
+})
+export const fetchProducts = (filter) => API.post(`${API_ENDPOINTS.fetchProducts}`, filter);
