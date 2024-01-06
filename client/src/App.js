@@ -51,11 +51,11 @@ function App() {
           element: <Profile />
         },
         {
-          path: '/products/:category',
+          path: '/products/:productCategory',
           element: <ProductList />
         },
         {
-          path: '/products/:category/:productname',
+          path: '/products/:category/:_id',
           element: <Product />
         }
       ]
