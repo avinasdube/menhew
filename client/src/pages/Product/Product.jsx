@@ -1,19 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Product.scss';
 import Navbar from '../../components/Navbar/Navbar';
-
-import himalayaTshirt from '../../assets/images/tshirts/loose_fit_himalaya_tshirt.jfif';
-import himalayaTshirt2 from '../../assets/images/tshirts/loose_fit_himalaya_tshirt2.jfif';
-import himalayaTshirt3 from '../../assets/images/tshirts/loose_fit_himalaya_tshirt3.jfif';
-import himalayaTshirt4 from '../../assets/images/tshirts/loose_fit_himalaya_tshirt4.jfif';
 
 import fav from '../../assets/icons/favourite.png';
 import cart from '../../assets/icons/cart.png';
 import Heading from '../../components/Heading/Heading';
+import { useParams } from 'react-router-dom';
+import { fetchProducts } from '../../api/api';
+import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants';
 
 const Product = () => {
+  const [product, setProduct] = useState({});
 
-  const [activeImg, setActiveImg] = useState(himalayaTshirt);
+  // setting activeImg as first image of product if product available else blank
+  const [activeImg, setActiveImg] = useState(
+    product[0] ?
+      `${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[0]}` :
+      '');
+
+  // getting product._id value from url
+  const id = useParams(1);
+
+  // fetching product details with obtained product._id on component mount
+  useEffect(() => {
+    // defining filter structure as json object
+    const filter = {
+      _id: `${id._id}`,
+    }
+
+    // function to fetch products from database
+    const getProducts = async () => {
+      const response = await fetchProducts(filter)
+      setProduct(response.data)
+    }
+    getProducts();
+  }, [id._id])
 
   return (
     <div className="productContainer" data-testid="product">
@@ -21,19 +42,32 @@ const Product = () => {
       <main className="pcontMain">
         <div className="pcontLeft">
           <div className="largeImg">
-            <img src={activeImg} alt=''></img>
+            <img
+              src={activeImg === "" ? `${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[0]}` : activeImg}
+              alt=''></img>
           </div>
           <div className="smallImg">
-            <img src={himalayaTshirt} alt='' onClick={() => setActiveImg(himalayaTshirt)}></img>
-            <img src={himalayaTshirt2} alt='' onClick={() => setActiveImg(himalayaTshirt2)}></img>
-            <img src={himalayaTshirt3} alt='' onClick={() => setActiveImg(himalayaTshirt3)}></img>
-            <img src={himalayaTshirt4} alt='' onClick={() => setActiveImg(himalayaTshirt4)}></img>
+            <img src={`${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[0]}`}
+              alt=''
+              onClick={() => setActiveImg(`${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[0]}`)}></img>
+            <img
+              src={`${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[1]}`}
+              alt=''
+              onClick={() => setActiveImg(`${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[1]}`)}></img>
+            <img
+              src={`${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[2]}`}
+              alt=''
+              onClick={() => setActiveImg(`${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[2]}`)}></img>
+            <img
+              src={`${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[3]}`}
+              alt=''
+              onClick={() => setActiveImg(`${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${product[0]?.productId}/${product[0]?.images[3]}`)}></img>
           </div>
         </div>
         <div className="pcontRight">
-          <Heading>Himalaya Printed T-Shirt</Heading>
-          <div className="price">&#8377; 899</div>
-          <div className="pdescrip">Pure cotton brown printed T-Shirt with Himalaya image</div>
+          <Heading>{product[0]?.productName}</Heading>
+          <div className="price">&#8377; {product[0]?.productPrice}</div>
+          <div className="pdescrip">{product[0]?.productDescription}</div>
           <div className="pCount">
             <button className="pButton">-</button>
             <span>3</span>

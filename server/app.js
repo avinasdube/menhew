@@ -25,7 +25,7 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: "16kb" }))
 app.use(express.urlencoded({ extended: true, limit: "16kb" }))
 app.use(cookieParser());
-// app.use("/api/uploads", express.static('./uploads'))
+app.use("/api/uploads", express.static('./uploads'))
 
 // importing routes and binding them
 import authRoute from './routes/authRoute.js';

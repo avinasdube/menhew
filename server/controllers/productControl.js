@@ -45,6 +45,15 @@ export const addNewProduct = async (req, res) => {
 /*--------------------------------------------------------------------*/
 
 
-export const getShirts = async (req, res) => {
+export const getProductsByFilter = async (req, res) => {
 
+  const filter = req.body;
+
+  try {
+    const fetchedProducts = await Product.find(filter);
+    res.status(200).json(fetchedProducts);
+  } catch (error) {
+    res.status(500).send('Internal Server Error');
+  }
 }
+

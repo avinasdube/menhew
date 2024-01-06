@@ -7,5 +7,7 @@ export const API_ENDPOINTS = {
     signup: "/auth/signup",
     login: "/auth/login",
     logout: "/auth/logout",
-    addnewproduct: "/product/addnewproduct"
+    addnewproduct: "/product/addnewproduct",
+    fetchProducts: "/product/getproducts",
+    fetchImages: "/uploads/products"
 }
