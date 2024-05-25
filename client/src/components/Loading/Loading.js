@@ -4,8 +4,8 @@ import './Loading.scss';
 const Loading = () => {
 
     return (
-        <div className="loadingContainer">
-            <div className="loadingSpinner">Avinash</div>
+        <div className="loading-container">
+            <div className="loading-spinner"></div>
         </div>
     )
 };
