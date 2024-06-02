@@ -9,7 +9,7 @@ export const addNewProduct = async (req, res) => {
         return res.status(500).send('Error uploading files');
       }
 
-      const { productId, productName, productDescription, productPrice, productSize, productCategory } = req.body;
+      const { productId, productName, productDescription, productPrice, productSize, productCategory, productTag } = req.body;
 
       const productCheck = await Product.findOne({ productId });
 
@@ -24,6 +24,7 @@ export const addNewProduct = async (req, res) => {
         productPrice,
         productSize,
         productCategory,
+        productTag
       });
 
       await product.save();

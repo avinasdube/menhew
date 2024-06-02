@@ -1,40 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './NewLaunched.scss';
 
-import new1 from '../../assets/images/tshirts/loose_fit_himalaya_tshirt.jfif';
-import new2 from '../../assets/images/casual-shirt/regular_fit_carduroy_shirt.jfif';
-import new3 from '../../assets/images/tshirts/regular_plain_darkblue_tshirt.jfif';
 import checkout from '../../assets/icons/upright.png';
 
 import NavButton from '../NavButton/NavButton';
+import { fetchProducts } from '../../api/api';
+import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants';
 
 const NewLaunched = () => {
 
-  const newProducts = [
-    {
-      id: 1,
-      pImg: new1,
-      title: "Himalaya T-Shirt"
-    },
-    {
-      id: 2,
-      pImg: new2,
-      title: "Corduroy Shirt"
-    },
-    {
-      id: 3,
-      pImg: new3,
-      title: "Plain T-Shirt"
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+
+    const filter = {
+      productTag: "newlaunched",
+    };
+
+    // function to fetch products from database
+    const getProducts = async () => {
+      const response = await fetchProducts(filter);
+      setProducts(response.data) // setting obtained product details
     }
 
-  ]
+    getProducts();
+  }, [])
+
   return (
     <div className="newLaunchContainer">
-      {newProducts.map((newProduct) => (
-        <div className="newProduct" style={{backgroundImage: `url(${newProduct.pImg})`}} key={newProduct.id}>
-          <div className="redirect"><NavButton link={''} navImg={checkout}/></div>
+      {products.map((newProduct) => (
+        <div className="newProduct" style={{ backgroundImage: `url(${API_BASE_URL}${API_ENDPOINTS.fetchImages}/${newProduct.productId}/${newProduct.images[0]})` }} key={newProduct._id}>
+          <div className="redirect"><NavButton link={`/products/${newProduct.productCategory}/${newProduct._id}`} navImg={checkout} /></div>
           <span className="tag">NEW</span>
-          <span className="ptitle">{newProduct.title}</span>
+          <span className="ptitle">{newProduct.productName}</span>
         </div>))}
     </div>
   )
