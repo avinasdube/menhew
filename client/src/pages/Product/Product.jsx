@@ -8,9 +8,16 @@ import Heading from '../../components/Heading/Heading';
 import { useParams } from 'react-router-dom';
 import { fetchProducts } from '../../api/api';
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../reducers/cartSlice';
 
 const Product = () => {
   const [product, setProduct] = useState({});
+
+  const [productQuantity, setProductQuantity] = useState(1);
+  const [productSize, setProductSize] = useState("");
+
+  const dispatch = useDispatch();
 
   // setting activeImg as first image of product if product available else blank
   const [activeImg, setActiveImg] = useState(
@@ -69,22 +76,31 @@ const Product = () => {
           <div className="price">&#8377; {product[0]?.productPrice}</div>
           <div className="pdescrip">{product[0]?.productDescription}</div>
           <div className="pCount">
-            <button className="pButton">-</button>
-            <span>3</span>
-            <button className="pButton">+</button>
+            <button className="pButton" onClick={() => setProductQuantity((prev) => prev === 1 ? 1 : prev - 1)}>-</button>
+            <span>{productQuantity}</span>
+            <button className="pButton" onClick={() => setProductQuantity((prev) => prev + 1)}>+</button>
           </div>
           <div className="psize">
             <div className="psizeHeading">Size</div>
             <div className="sizeButtons">
-              <button className="pButton">S</button>
-              <button className="pButton">M</button>
-              <button className="pButton">L</button>
-              <button className="pButton">XL</button>
+              <button className={`pButton ${productSize === "S" ? 'active' : ''}`} onClick={() => setProductSize("S")}>S</button>
+              <button className={`pButton ${productSize === "M" ? 'active' : ''}`} onClick={() => setProductSize("M")}>M</button>
+              <button className={`pButton ${productSize === "L" ? 'active' : ''}`} onClick={() => setProductSize("L")}>L</button>
+              <button className={`pButton ${productSize === "XL" ? 'active' : ''}`} onClick={() => setProductSize("XL")}>XL</button>
             </div>
           </div>
           <div className="pactions">
             <button className="pButton"><img src={fav} alt=''></img></button>
-            <button className="pButton"><img src={cart} alt=''></img></button>
+            <button className="pButton" onClick={() => dispatch(addToCart({
+              id: product[0]._id,
+              productId: product[0].productId,
+              productName: product[0].productName,
+              productDescription: product[0].productDescription,
+              productQuantity: productQuantity,
+              productSize: productSize,
+              productPrice: product[0].productPrice,
+              productImage: product[0].images[0]
+            }))}><img src={cart} alt=''></img></button>
             <button className="pButton">CHECKOUT</button>
           </div>
         </div>

@@ -30,7 +30,7 @@
         height: 25px;
     }
 
-    &:hover {
+    &:hover, &.active {
         background-color: $accentColor;
         color: white;
 
@@ -38,6 +38,8 @@
             filter: invert(1);
         }
     }
+
+    
 }
 
 .productContainer {
