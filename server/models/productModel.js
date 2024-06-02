@@ -27,6 +27,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    productTag: {
+        type: String,
+        default: "Normal"
+    },
     images: {
         type: [String],
         default: [],
