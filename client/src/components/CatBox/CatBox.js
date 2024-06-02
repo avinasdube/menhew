@@ -8,6 +8,7 @@ const CatBox = ({ catOptions }) => {
         <>
             {catOptions.map((catOption) => (
                 <div className="catBox" style={{ backgroundImage: `url(${catOption.bgImg})` }} key={catOption.id}>
+                    {/* redirecting to product list page */}
                     <Link to={`/products/${catOption.title.toLocaleLowerCase()}`} className="catTitle">{catOption.title}</Link>
                 </div>))}
         </>
